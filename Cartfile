@@ -1,0 +1,2 @@
+github "dbsystel/dbnetworkstack" == 0.4
+github "matthewcheok/JSONCodable" "master"
