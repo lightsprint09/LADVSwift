@@ -14,6 +14,7 @@ extension CompetitionDetails: JSONMappable {}
 extension CompetitionResultDetails: JSONMappable {}
 
 public struct CompetitionWebService {
+    public init() {}
     public func searchCompetitions(filter: CompetitionFilter) -> Resource<Array<Competition>> {
         var parameters = filter.toDictionary()
         parameters["mostCurrent"] = true
