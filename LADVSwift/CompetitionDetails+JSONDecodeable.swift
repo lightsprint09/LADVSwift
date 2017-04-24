@@ -26,5 +26,6 @@ extension CompetitionDetails: JSONCodable {
         links = try decoder.decode("links")
         attachments = try decoder.decode("attachements")
         veranstaltungen = try decoder.decode("veranstaltungen")
+        region = Region.region(forId: try decoder.decode("lvs"))
     }
 }

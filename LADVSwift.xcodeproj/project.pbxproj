@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		941D024F1EA37BFC00616F03 /* CompetitionSearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D024E1EA37BFC00616F03 /* CompetitionSearchFilter.swift */; };
+		941D02511EA37DB300616F03 /* CompetitionFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */; };
+		948751B71EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948751B61EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift */; };
 		949F2AB41EA377B800AB3B90 /* DBNetworkStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B6BD7D1EA37433008CA6D5 /* DBNetworkStack.framework */; };
 		949F2AB51EA377B800AB3B90 /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B6BD7E1EA37433008CA6D5 /* JSONCodable.framework */; };
 		94B6BD681EA37278008CA6D5 /* LADVSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B6BD5E1EA37278008CA6D5 /* LADVSwift.framework */; };
-		94B6BD6D1EA37278008CA6D5 /* LADVSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD6C1EA37278008CA6D5 /* LADVSwiftTests.swift */; };
 		94B6BD6F1EA37278008CA6D5 /* LADVSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 94B6BD611EA37278008CA6D5 /* LADVSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		94B6BD881EA37498008CA6D5 /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD811EA37498008CA6D5 /* Competition.swift */; };
 		94B6BD891EA37498008CA6D5 /* CompetitionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD821EA37498008CA6D5 /* CompetitionDetails.swift */; };
@@ -40,6 +42,8 @@
 		94B6BDB61EA374D5008CA6D5 /* AtheleteRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BDB31EA374D5008CA6D5 /* AtheleteRequests.swift */; };
 		94B6BDB71EA374D5008CA6D5 /* CompetitionWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BDB41EA374D5008CA6D5 /* CompetitionWebservice.swift */; };
 		94B6BDB81EA374D5008CA6D5 /* Array+Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BDB51EA374D5008CA6D5 /* Array+Split.swift */; };
+		94B949FE1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B949FD1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift */; };
+		94B94A001EA6638100AE0E19 /* SearchAthletes.json in Resources */ = {isa = PBXBuildFile; fileRef = 94B949FF1EA6638100AE0E19 /* SearchAthletes.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,11 +57,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		941D024E1EA37BFC00616F03 /* CompetitionSearchFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionSearchFilter.swift; sourceTree = "<group>"; };
+		941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionFilterTests.swift; sourceTree = "<group>"; };
+		948751B61EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CompetitionResultDetails+JSONDecodable.swift"; sourceTree = "<group>"; };
 		94B6BD5E1EA37278008CA6D5 /* LADVSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LADVSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94B6BD611EA37278008CA6D5 /* LADVSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LADVSwift.h; sourceTree = "<group>"; };
 		94B6BD621EA37278008CA6D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94B6BD671EA37278008CA6D5 /* LADVSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LADVSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		94B6BD6C1EA37278008CA6D5 /* LADVSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LADVSwiftTests.swift; sourceTree = "<group>"; };
 		94B6BD6E1EA37278008CA6D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94B6BD7D1EA37433008CA6D5 /* DBNetworkStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DBNetworkStack.framework; path = ../Carthage/Build/iOS/DBNetworkStack.framework; sourceTree = "<group>"; };
 		94B6BD7E1EA37433008CA6D5 /* JSONCodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONCodable.framework; path = ../Carthage/Build/iOS/JSONCodable.framework; sourceTree = "<group>"; };
@@ -89,6 +95,8 @@
 		94B6BDB31EA374D5008CA6D5 /* AtheleteRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtheleteRequests.swift; sourceTree = "<group>"; };
 		94B6BDB41EA374D5008CA6D5 /* CompetitionWebservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionWebservice.swift; sourceTree = "<group>"; };
 		94B6BDB51EA374D5008CA6D5 /* Array+Split.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Split.swift"; sourceTree = "<group>"; };
+		94B949FD1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AthletesWebserviceTest.swift; sourceTree = "<group>"; };
+		94B949FF1EA6638100AE0E19 /* SearchAthletes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchAthletes.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +120,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		941D024D1EA37B4B00616F03 /* Webservice */ = {
+			isa = PBXGroup;
+			children = (
+				94B6BDB31EA374D5008CA6D5 /* AtheleteRequests.swift */,
+				94B6BDB41EA374D5008CA6D5 /* CompetitionWebservice.swift */,
+				941D024E1EA37BFC00616F03 /* CompetitionSearchFilter.swift */,
+			);
+			name = Webservice;
+			sourceTree = "<group>";
+		};
 		94B6BD541EA37278008CA6D5 = {
 			isa = PBXGroup;
 			children = (
@@ -134,8 +152,7 @@
 		94B6BD601EA37278008CA6D5 /* LADVSwift */ = {
 			isa = PBXGroup;
 			children = (
-				94B6BDB31EA374D5008CA6D5 /* AtheleteRequests.swift */,
-				94B6BDB41EA374D5008CA6D5 /* CompetitionWebservice.swift */,
+				941D024D1EA37B4B00616F03 /* Webservice */,
 				94B6BDB51EA374D5008CA6D5 /* Array+Split.swift */,
 				94B6BD7A1EA373E8008CA6D5 /* Model */,
 				94B6BD7B1EA373F4008CA6D5 /* Model+JSONSerialization */,
@@ -147,8 +164,10 @@
 		94B6BD6B1EA37278008CA6D5 /* LADVSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				94B6BD6C1EA37278008CA6D5 /* LADVSwiftTests.swift */,
 				94B6BD6E1EA37278008CA6D5 /* Info.plist */,
+				941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */,
+				94B949FD1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift */,
+				94B949FF1EA6638100AE0E19 /* SearchAthletes.json */,
 			);
 			path = LADVSwiftTests;
 			sourceTree = "<group>";
@@ -197,6 +216,7 @@
 				94B6BDAD1EA374CC008CA6D5 /* Athelt+JSONDecodeable.swift */,
 				94B6BDAE1EA374CC008CA6D5 /* AthletDetails+JSONDecodable.swift */,
 				94B6BDAF1EA374CC008CA6D5 /* Performance+JSONDecodeable.swift */,
+				948751B61EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift */,
 			);
 			name = "Model+JSONSerialization";
 			sourceTree = "<group>";
@@ -280,8 +300,7 @@
 					};
 					94B6BD661EA37278008CA6D5 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 2UNP9S73JZ;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -315,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94B94A001EA6638100AE0E19 /* SearchAthletes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,12 +388,14 @@
 				94B6BD891EA37498008CA6D5 /* CompetitionDetails.swift in Sources */,
 				94B6BDB61EA374D5008CA6D5 /* AtheleteRequests.swift in Sources */,
 				94B6BD8C1EA37498008CA6D5 /* CompetitionCategory.swift in Sources */,
+				948751B71EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift in Sources */,
 				94B6BD9A1EA374A8008CA6D5 /* AthletDetails.swift in Sources */,
 				94B6BD9B1EA374A8008CA6D5 /* Performance.swift in Sources */,
 				94B6BDB21EA374CC008CA6D5 /* Performance+JSONDecodeable.swift in Sources */,
 				94B6BD8E1EA37498008CA6D5 /* Attachement.swift in Sources */,
 				94B6BDB71EA374D5008CA6D5 /* CompetitionWebservice.swift in Sources */,
 				94B6BD9C1EA374A8008CA6D5 /* Disciplin.swift in Sources */,
+				941D024F1EA37BFC00616F03 /* CompetitionSearchFilter.swift in Sources */,
 				94B6BDA81EA374C2008CA6D5 /* Competition+JSONDecodeable.swift in Sources */,
 				94B6BDB81EA374D5008CA6D5 /* Array+Split.swift in Sources */,
 				94B6BD9D1EA374A8008CA6D5 /* PerformanceOfDisciplin.swift in Sources */,
@@ -392,7 +414,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94B6BD6D1EA37278008CA6D5 /* LADVSwiftTests.swift in Sources */,
+				94B949FE1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift in Sources */,
+				941D02511EA37DB300616F03 /* CompetitionFilterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,11 +588,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 2UNP9S73JZ;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = LADVSwiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.LADVSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -578,11 +603,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 2UNP9S73JZ;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = LADVSwiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.LADVSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

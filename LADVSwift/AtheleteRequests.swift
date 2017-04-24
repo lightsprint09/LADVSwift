@@ -11,18 +11,14 @@ import DBNetworkStack
 
 public struct LADV {
     static var APIKey: String = ""
-}
-
-public struct LADVURLConfig {
-    public init() {}
     
     static let ladvURLKey = "ladvURLKey"
-    var baseURL: URL {
+    static var baseURL: URL {
         return URL(string: "http://ladv.de/api/\(LADV.APIKey)/")!
     }
     
-    public var urlConfiguration: [String: URL] {
-        return [LADVURLConfig.ladvURLKey: baseURL]
+    public static var urlConfiguration: [String: URL] {
+        return [ladvURLKey: baseURL]
     }
 }
 
@@ -32,17 +28,20 @@ extension AthletDetails: JSONMappable {}
 public struct AthleteWebService {
     public init() {}
     
-    public func searchAthlets(with name: String) -> Resource<[Athlete]> {
-        let request = NetworkRequest(path: "athletQuery", baseURLKey: LADVURLConfig.ladvURLKey,
-                                     parameter: ["query": "*\(name)*"])
+    public func searchAthlets(with name: String, `in` region: Region? = nil) -> Resource<[Athlete]> {
+        var parameter: [String: Any] =  ["query": "*\(name)*"]
+        parameter["lv"] = region?.id
+        let request = NetworkRequest(path: "athletQuery", baseURLKey: LADV.ladvURLKey,
+                                     parameter: parameter)
         
         return JSONArrayResource(request: request).wrapped()
     }
     
     public func athletDeatils(for athlets: [AthleteDescribing], datayear: Int) -> Resource<[AthletDetails]> {
         let ids = athlets.map({ "\($0.ladvId)" }).joined(separator: ",")
-        let request = NetworkRequest(path: "athletDetail", baseURLKey: LADVURLConfig.ladvURLKey,
-                                     parameter: ["id": ids, "all": "true", "datayear": datayear])
+        let parameter: [String: Any] = ["id": ids, "all": "true", "datayear": datayear]
+        let request = NetworkRequest(path: "athletDetail", baseURLKey: LADV.ladvURLKey,
+                                     parameter: parameter)
         
         return JSONArrayResource(request: request).wrapped()
     }

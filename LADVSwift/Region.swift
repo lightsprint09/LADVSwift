@@ -12,6 +12,10 @@ public struct Region {
     public let id: String
     public let name: String
     
+    static func region(forId id: String) -> Region {
+        return all.first(where: { $0.id == id })!
+    }
+    
     public static let all = [Region(id: "BA", name: "Baden"),
                Region(id: "BY", name: "Bayern"),
                Region(id: "BE", name: "Berlin"),

@@ -12,15 +12,11 @@ public struct CompetitionResultDetails {
     public let id: Int
     public let name: String
     public let date: Date
-    public let dateText: String
+    public let endDate: Date?
     public let locationName: String
-    
-    public let description: String
-    
-    //Meldung
-    public let meldeAdress: String
-    public let meldeEMailAdress: String
-    public let meldeSchlussDate: Date
+    public let tags: [String]
+    public let results: [Attachement]
+    public let region: Region
     
     public let location: CompetitionLocation
 

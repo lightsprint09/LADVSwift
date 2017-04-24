@@ -11,39 +11,45 @@ import DBNetworkStack
 
 extension Competition: JSONMappable {}
 extension CompetitionDetails: JSONMappable {}
+extension CompetitionResultDetails: JSONMappable {}
 
-public struct CompetitionFilter {
-    public init() {}
-    public var ageClasses: [Age]?
-    public var disciplins: [Disciplin]?
-    public var regions: [Region]?
-    public var categories: [CompetitionCategory]?
+public struct CompetitionWebService {
+    public func searchCompetitions(filter: CompetitionFilter) -> Resource<Array<Competition>> {
+        var parameters = filter.toDictionary()
+        parameters["mostCurrent"] = true
+        parameters["limit"] = 100
+        
+        let request = NetworkRequest(path: "ausList", baseURLKey: LADV.ladvURLKey,
+                                     parameter: parameters)
+        
+        return JSONArrayResource(request: request).wrapped()
+    }
+    
+    public func competitionDetails(for competitions: [CompetitionDescribing]) -> Resource<[CompetitionDetails]> {
+        let ids = competitions.map( { "\($0.id)" } ).joined(separator: ",")
+        let parameters: [String: Any] = ["id": ids, "all": true, "wettbewerbe": true]
+        let request = NetworkRequest(path: "ausDetail", baseURLKey: LADV.ladvURLKey,
+                                     parameter: parameters)
+        
+        return JSONArrayResource(request: request).wrapped()
+    }
+    
+    public func competitionDetail(for competition: CompetitionDescribing) -> Resource<CompetitionDetails> {
+        return competitionDetails(for: [competition]).map(transform: { $0.first! })
+    }
+    
+    public func competitionResultDetails(for competitions: [CompetitionDescribing]) -> Resource<[CompetitionResultDetails]> {
+        let ids = competitions.map( { "\($0.id)" } ).joined(separator: ",")
+        let parameters: [String: Any] = ["id": ids, "all": true]
+        let request = NetworkRequest(path: "vedDetail", baseURLKey: LADV.ladvURLKey,
+                                     parameter: parameters)
+        
+        return JSONArrayResource(request: request).wrapped()
+    }
+    
+    public func competitionResultDetails(for competition: CompetitionDescribing) -> Resource<CompetitionResultDetails> {
+        return competitionResultDetails(for: [competition]).map(transform: { $0.first! })
+    }
 }
 
-public func SearchCompetitions(filter: CompetitionFilter) -> Resource<Array<Competition>> {
-    var parameters: [String: Any] = ["mostCurrent": "true", "limit": 100]
-    if let ageClasses = filter.ageClasses, !ageClasses.isEmpty {
-        parameters["klasse"] = ageClasses.map( { $0.dlvID } ).joined(separator: ",")
-    }
-    if let disciplins = filter.disciplins, !disciplins.isEmpty {
-        parameters["disziplin"] = disciplins.map( { $0.dlvID } ).joined(separator: ",")
-    }
-    if let regions = filter.regions, !regions.isEmpty {
-        parameters["lv"] = regions.map { $0.id }.joined(separator: ",")
-    }
-    if let categories = filter.categories, !categories.isEmpty {
-        parameters["andTags"] = categories.map { $0.name }.joined(separator: ",")
-    }
-    let request = NetworkRequest(path: "ausList", baseURLKey: LADVURLConfig.ladvURLKey,
-                                 parameter: parameters)
-    
-    return JSONArrayResource(request: request).wrapped()
-}
 
-public func CompetitionDetail(for competition: CompetitionDescribing) -> Resource<CompetitionDetails> {
-    let request = NetworkRequest(path: "ausDetail", baseURLKey: LADVURLConfig.ladvURLKey,
-                                 parameter: ["id": competition.id, "ort": true, "wettbewerbe": true, "attachements": true, "links": true, "veranstaltungen": true])
-    
-    return JSONArrayResource<CompetitionDetails>(request: request).map(transform: { $0.first! }).wrapped()
-    
-}
