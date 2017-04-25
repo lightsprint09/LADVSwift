@@ -9,19 +9,6 @@
 import Foundation
 import DBNetworkStack
 
-public struct LADV {
-    static var APIKey: String = ""
-    
-    static let ladvURLKey = "ladvURLKey"
-    static var baseURL: URL {
-        return URL(string: "http://ladv.de/api/\(LADV.APIKey)/")!
-    }
-    
-    public static var urlConfiguration: [String: URL] {
-        return [ladvURLKey: baseURL]
-    }
-}
-
 extension Athlete: JSONMappable {}
 extension AthletDetails: JSONMappable {}
 

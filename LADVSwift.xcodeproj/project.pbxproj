@@ -44,6 +44,7 @@
 		94B6BDB81EA374D5008CA6D5 /* Array+Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BDB51EA374D5008CA6D5 /* Array+Split.swift */; };
 		94B949FE1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B949FD1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift */; };
 		94B94A001EA6638100AE0E19 /* SearchAthletes.json in Resources */ = {isa = PBXBuildFile; fileRef = 94B949FF1EA6638100AE0E19 /* SearchAthletes.json */; };
+		94C8784C1EAFD2DB00B98393 /* LADV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8784B1EAFD2DB00B98393 /* LADV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		94B6BDB51EA374D5008CA6D5 /* Array+Split.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Split.swift"; sourceTree = "<group>"; };
 		94B949FD1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AthletesWebserviceTest.swift; sourceTree = "<group>"; };
 		94B949FF1EA6638100AE0E19 /* SearchAthletes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchAthletes.json; sourceTree = "<group>"; };
+		94C8784B1EAFD2DB00B98393 /* LADV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LADV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			children = (
 				94B6BD611EA37278008CA6D5 /* LADVSwift.h */,
 				94B6BD621EA37278008CA6D5 /* Info.plist */,
+				94C8784B1EAFD2DB00B98393 /* LADV.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				94B6BD8A1EA37498008CA6D5 /* CompetitionLocation.swift in Sources */,
 				94B6BD991EA374A8008CA6D5 /* Athlet.swift in Sources */,
 				94B6BD8B1EA37498008CA6D5 /* CompetitionKind.swift in Sources */,
+				94C8784C1EAFD2DB00B98393 /* LADV.swift in Sources */,
 				94B6BDA11EA374A8008CA6D5 /* AthleteDescribing.swift in Sources */,
 				94B6BDB11EA374CC008CA6D5 /* AthletDetails+JSONDecodable.swift in Sources */,
 				94B6BDB01EA374CC008CA6D5 /* Athelt+JSONDecodeable.swift in Sources */,
