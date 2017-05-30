@@ -20,6 +20,7 @@ extension CompetitionResultDetails: JSONCodable {
         location = try decoder.decode("ort")
         results = try decoder.decode("ergebnisse")
         tags = (try decoder.decode("tags") as String).components(separatedBy: ",")
-        region = Region.region(forId: try decoder.decode("lvs"))
+        let lvsStrings = (try decoder.decode("lvs") as String).components(separatedBy: ",")
+        regions = lvsStrings.map(Region.region)
     }
 }

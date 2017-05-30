@@ -29,7 +29,7 @@ public struct CompetitionDetails {
     public let attachments: [Attachement]
     public let veranstaltungen: [Attachement]
     
-    public let region: Region
+    public let regions: [Region]
     
 }
 

@@ -15,7 +15,7 @@ public struct CompetitionResultDetails {
     public let endDate: Date?
     public let tags: [String]
     public let results: [Attachement]
-    public let region: Region
+    public let regions: [Region]
     
     public let location: CompetitionLocation
 
