@@ -48,8 +48,8 @@ public struct CompetitionWebService {
         return JSONArrayResource(request: request).wrapped()
     }
     
-    public func competitionResultDetails(for competition: CompetitionDescribing) -> Resource<CompetitionResultDetails> {
-        return competitionResultDetails(for: [competition]).map(transform: { $0.first! })
+    public func competitionResultDetails(for competition: CompetitionDescribing) -> Resource<CompetitionResultDetails?> {
+        return competitionResultDetails(for: [competition]).map(transform: { $0.first })
     }
 }
 
