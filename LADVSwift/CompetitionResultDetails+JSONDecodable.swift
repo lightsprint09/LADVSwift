@@ -19,7 +19,7 @@ extension CompetitionResultDetails: JSONCodable {
         endDate = endDateInt.map { Date(timeIntervalSince1970: $0 / 1000) }
         location = try decoder.decode("ort")
         results = try decoder.decode("ergebnisse")
-        tags = try decoder.decode("tags")
+        tags = (try decoder.decode("tags") as String).components(separatedBy: ",")
         region = Region.region(forId: try decoder.decode("lvs"))
     }
 }
