@@ -13,7 +13,6 @@ public struct CompetitionResultDetails {
     public let name: String
     public let date: Date
     public let endDate: Date?
-    public let locationName: String
     public let tags: [String]
     public let results: [Attachement]
     public let region: Region
