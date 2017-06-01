@@ -26,6 +26,7 @@ extension CompetitionDetails: JSONCodable {
         links = try decoder.decode("links")
         attachments = try decoder.decode("attachements")
         veranstaltungen = try decoder.decode("veranstaltungen")
+        results = try decoder.decode("ergebnisse")
         let lvsStrings = (try decoder.decode("lvs") as String).components(separatedBy: ",")
         regions = lvsStrings.map(Region.region)
     }
