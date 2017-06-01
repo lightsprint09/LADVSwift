@@ -15,6 +15,5 @@ extension Attachement: JSONCodable {
         name = try decoder.decode("name")
         let urlString: String = try decoder.decode("url")
         url = URL(string: urlString)!
-        fileType = try decoder.decode("type")
     }
 }

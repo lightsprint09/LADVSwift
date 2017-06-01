@@ -38,19 +38,6 @@ public struct CompetitionWebService {
     public func competitionDetail(for competition: CompetitionDescribing) -> Resource<CompetitionDetails> {
         return competitionDetails(for: [competition]).map(transform: { $0.first! })
     }
-    
-    public func competitionResultDetails(for competitions: [CompetitionDescribing]) -> Resource<[CompetitionResultDetails]> {
-        let ids = competitions.map( { "\($0.id)" } ).joined(separator: ",")
-        let parameters: [String: Any] = ["id": ids, "all": true]
-        let request = NetworkRequest(path: "vedDetail", baseURLKey: LADV.ladvURLKey,
-                                     parameter: parameters)
-        
-        return JSONArrayResource(request: request).wrapped()
-    }
-    
-    public func competitionResultDetails(for competition: CompetitionDescribing) -> Resource<CompetitionResultDetails?> {
-        return competitionResultDetails(for: [competition]).map(transform: { $0.first })
-    }
 }
 
 

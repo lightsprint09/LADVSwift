@@ -11,7 +11,6 @@ import Foundation
 public struct Attachement {
     public let name: String
     public let url: URL
-    public let fileType: String
 }
 
 extension Attachement: Identifieable {
