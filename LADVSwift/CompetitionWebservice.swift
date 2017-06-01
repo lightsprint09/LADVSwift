@@ -38,6 +38,7 @@ public struct CompetitionWebService {
     public func competitionDetail(for competition: CompetitionDescribing) -> Resource<CompetitionDetails> {
         return competitionDetails(for: [competition]).map(transform: { $0.first! })
     }
+    
 }
 
 
