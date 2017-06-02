@@ -26,8 +26,8 @@ public struct CompetitionWebService {
         return JSONArrayResource(request: request).wrapped()
     }
     
-    public func competitionDetails(for competitions: [CompetitionDescribing]) -> Resource<[CompetitionDetails]> {
-        let ids = competitions.map( { "\($0.id)" } ).joined(separator: ",")
+    public func competitionDetails(for competitionIds: [Int]) -> Resource<[CompetitionDetails]> {
+        let ids = competitionIds.map( { "\($0)" } ).joined(separator: ",")
         let parameters: [String: Any] = ["id": ids, "all": true, "wettbewerbe": true]
         let request = NetworkRequest(path: "ausDetail", baseURLKey: LADV.ladvURLKey,
                                      parameter: parameters)
@@ -35,10 +35,21 @@ public struct CompetitionWebService {
         return JSONArrayResource(request: request).wrapped()
     }
     
-    public func competitionDetail(for competition: CompetitionDescribing) -> Resource<CompetitionDetails> {
-        return competitionDetails(for: [competition]).map(transform: { $0.first! })
+    public func competitionDetail(for competitionId: Int) -> Resource<CompetitionDetails> {
+        return competitionDetails(for: [competitionId]).map(transform: { $0.first! })
     }
+    
     
 }
 
+extension CompetitionWebService {
+    
+    public func competitionDetails(for competitions: [CompetitionDescribing]) -> Resource<[CompetitionDetails]> {
+        return competitionDetails(for: competitions.map({ $0.id }))
+    }
+    
+    public func competitionDetail(for competition: CompetitionDescribing) -> Resource<CompetitionDetails> {
+        return competitionDetails(for: [competition.id]).map(transform: { $0.first! })
+    }
+}
 
