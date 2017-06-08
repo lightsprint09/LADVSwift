@@ -14,8 +14,12 @@ extension CompetitionDetails: JSONCodable {
         let decoder = JSONDecoder(object: object)
         id = try decoder.decode("id")
         name = try decoder.decode("name")
-        dateText = try decoder.decode("datumText")
         date = Date(timeIntervalSince1970: try decoder.decode("datum") / 1000)
+        if let endDateSeconds: Double = try decoder.decode("bisDatum") {
+            endDate = Date(timeIntervalSince1970: endDateSeconds / 1000)
+        } else {
+            endDate = nil
+        }
         locationName = try decoder.decode("sportstaette")
         description = try decoder.decode("beschreibung")
         meldeAdress = try decoder.decode("meldAdresse")
@@ -28,5 +32,8 @@ extension CompetitionDetails: JSONCodable {
         veranstaltungen = try decoder.decode("veranstaltungen")
         let lvsStrings = (try decoder.decode("lvs") as String).components(separatedBy: ",")
         regions = lvsStrings.map(Region.region)
+        tags = (try decoder.decode("tags") as String).components(separatedBy: ",")
+        organizer = try decoder.decode("veranstalter")
+        ausrichter = try decoder.decode("ausrichter")
     }
 }

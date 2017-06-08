@@ -12,10 +12,13 @@ public struct CompetitionDetails {
     public let id: Int
     public let name: String
     public let date: Date
-    public let dateText: String
+    public let endDate: Date?
     public let locationName: String
     
+    public let organizer: String
+    public let ausrichter: String
     public let description: String
+    public let tags: [String]
     
     //Meldung
     public let meldeAdress: String
