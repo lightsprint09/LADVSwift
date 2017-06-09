@@ -15,11 +15,8 @@ extension CompetitionDetails: JSONCodable {
         id = try decoder.decode("id")
         name = try decoder.decode("name")
         date = Date(timeIntervalSince1970: try decoder.decode("datum") / 1000)
-        if let endDateSeconds: Double = try decoder.decode("bisDatum") {
-            endDate = Date(timeIntervalSince1970: endDateSeconds / 1000)
-        } else {
-            endDate = nil
-        }
+        let endDateSeconds: Double? = try decoder.decode("bisDatum")
+        endDate = endDateSeconds.map { Date(timeIntervalSince1970: $0 / 1000) }
         locationName = try decoder.decode("sportstaette")
         description = try decoder.decode("beschreibung")
         meldeAdress = try decoder.decode("meldAdresse")

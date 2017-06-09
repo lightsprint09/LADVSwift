@@ -12,6 +12,7 @@ public protocol CompetitionDescribing {
     var id: Int { get }
     var name: String { get }
     var date: Date { get }
+    var endDate: Date? { get }
     var locationName: String { get }
 }
 
@@ -25,7 +26,7 @@ public struct Competition {
     public let id: Int
     public let name: String
     public let date: Date
-    public let dateText: String
+    public let endDate: Date?
     public let city: String?
     public let locationName: String
     
