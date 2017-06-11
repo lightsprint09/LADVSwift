@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		941D024F1EA37BFC00616F03 /* CompetitionSearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D024E1EA37BFC00616F03 /* CompetitionSearchFilter.swift */; };
 		941D02511EA37DB300616F03 /* CompetitionFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */; };
+		947071421EEAB8F300D66889 /* AttendingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947071411EEAB8F300D66889 /* AttendingLists.swift */; };
+		947071441EEAF2BC00D66889 /* LADVMEldeListe.html in Resources */ = {isa = PBXBuildFile; fileRef = 947071431EEAF2BC00D66889 /* LADVMEldeListe.html */; };
+		947071461EEAF2F300D66889 /* MeldeListenParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947071451EEAF2F300D66889 /* MeldeListenParserTest.swift */; };
+		9470714C1EEB09EC00D66889 /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9470714B1EEB09EC00D66889 /* Fuzi.framework */; };
 		948751B71EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948751B61EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift */; };
 		949C3EB81EE07CF70077815E /* ResultAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C3EB71EE07CF70077815E /* ResultAttachment.swift */; };
 		949C3EBA1EE07E0A0077815E /* ResultAttachment+JSONDecodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C3EB91EE07E0A0077815E /* ResultAttachment+JSONDecodeable.swift */; };
@@ -62,6 +66,13 @@
 /* Begin PBXFileReference section */
 		941D024E1EA37BFC00616F03 /* CompetitionSearchFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionSearchFilter.swift; sourceTree = "<group>"; };
 		941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionFilterTests.swift; sourceTree = "<group>"; };
+		9470713F1EEAB70C00D66889 /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/iOS/SwiftSoup.framework; sourceTree = "<group>"; };
+		947071411EEAB8F300D66889 /* AttendingLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingLists.swift; sourceTree = "<group>"; };
+		947071431EEAF2BC00D66889 /* LADVMEldeListe.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = LADVMEldeListe.html; sourceTree = "<group>"; };
+		947071451EEAF2F300D66889 /* MeldeListenParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeldeListenParserTest.swift; sourceTree = "<group>"; };
+		947071471EEAFF3500D66889 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = Carthage/Build/iOS/Kanna.framework; sourceTree = "<group>"; };
+		947071491EEAFFD900D66889 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		9470714B1EEB09EC00D66889 /* Fuzi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fuzi.framework; path = Carthage/Build/iOS/Fuzi.framework; sourceTree = "<group>"; };
 		948751B61EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CompetitionResultDetails+JSONDecodable.swift"; sourceTree = "<group>"; };
 		949C3EB71EE07CF70077815E /* ResultAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultAttachment.swift; sourceTree = "<group>"; };
 		949C3EB91EE07E0A0077815E /* ResultAttachment+JSONDecodeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ResultAttachment+JSONDecodeable.swift"; sourceTree = "<group>"; };
@@ -112,6 +123,7 @@
 			files = (
 				949F2AB51EA377B800AB3B90 /* JSONCodable.framework in Frameworks */,
 				949F2AB41EA377B800AB3B90 /* DBNetworkStack.framework in Frameworks */,
+				9470714C1EEB09EC00D66889 /* Fuzi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,10 +182,12 @@
 		94B6BD6B1EA37278008CA6D5 /* LADVSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				947071431EEAF2BC00D66889 /* LADVMEldeListe.html */,
 				94B6BD6E1EA37278008CA6D5 /* Info.plist */,
 				941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */,
 				94B949FD1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift */,
 				94B949FF1EA6638100AE0E19 /* SearchAthletes.json */,
+				947071451EEAF2F300D66889 /* MeldeListenParserTest.swift */,
 			);
 			path = LADVSwiftTests;
 			sourceTree = "<group>";
@@ -209,6 +223,7 @@
 				94B6BD961EA374A8008CA6D5 /* Identifieable.swift */,
 				94B6BD971EA374A8008CA6D5 /* AthleteDescribing.swift */,
 				94B6BD981EA374A8008CA6D5 /* Gender.swift */,
+				947071411EEAB8F300D66889 /* AttendingLists.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -233,6 +248,10 @@
 		94B6BD7C1EA37433008CA6D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9470714B1EEB09EC00D66889 /* Fuzi.framework */,
+				947071491EEAFFD900D66889 /* libxml2.tbd */,
+				947071471EEAFF3500D66889 /* Kanna.framework */,
+				9470713F1EEAB70C00D66889 /* SwiftSoup.framework */,
 				94B6BD7D1EA37433008CA6D5 /* DBNetworkStack.framework */,
 				94B6BD7E1EA37433008CA6D5 /* JSONCodable.framework */,
 			);
@@ -344,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94B94A001EA6638100AE0E19 /* SearchAthletes.json in Resources */,
+				947071441EEAF2BC00D66889 /* LADVMEldeListe.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +391,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/DBNetworkStack.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/JSONCodable.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kanna.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Fuzi.framework",
 			);
 			name = "📦 Carthage Copy";
 			outputPaths = (
@@ -416,6 +438,7 @@
 				94B6BD8D1EA37498008CA6D5 /* CompetitionResultDetails.swift in Sources */,
 				94B6BDAC1EA374C2008CA6D5 /* Attachment+JSONDecodeable.swift in Sources */,
 				949C3EBA1EE07E0A0077815E /* ResultAttachment+JSONDecodeable.swift in Sources */,
+				947071421EEAB8F300D66889 /* AttendingLists.swift in Sources */,
 				94B6BDA91EA374C2008CA6D5 /* CompetitionDetails+JSONDecodeable.swift in Sources */,
 				94B6BD9E1EA374A8008CA6D5 /* AgeClass.swift in Sources */,
 				94B6BDA21EA374A8008CA6D5 /* Gender.swift in Sources */,
@@ -428,6 +451,7 @@
 			files = (
 				94B949FE1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift in Sources */,
 				941D02511EA37DB300616F03 /* CompetitionFilterTests.swift in Sources */,
+				947071461EEAF2F300D66889 /* MeldeListenParserTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +582,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = LADVSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -567,6 +592,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -585,6 +611,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = LADVSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -593,6 +620,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -602,6 +630,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = LADVSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.LADVSwiftTests;
@@ -617,6 +646,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = LADVSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = de.freiraum.LADVSwiftTests;

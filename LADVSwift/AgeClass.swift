@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension Age: Identifieable {
+    public var id: Int {
+        return dlvID.hashValue
+    }
+}
+
 public struct Age {
     public let name: String
     public let shortName: String
