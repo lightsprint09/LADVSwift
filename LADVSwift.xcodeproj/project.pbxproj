@@ -391,7 +391,6 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/DBNetworkStack.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/JSONCodable.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Kanna.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Fuzi.framework",
 			);
 			name = "📦 Carthage Copy";
