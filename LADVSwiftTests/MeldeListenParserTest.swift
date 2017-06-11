@@ -17,7 +17,7 @@ class MeldeListenParserTest: XCTestCase {
         let url = bundle.url(forResource: "LADVMEldeListe", withExtension: "html")
         
         let htmlString = try? String(contentsOf: url!)
-        guard let parser = try? Parser().parse(html: htmlString!) else {
+        guard let parser = try? MeldungParser().parse(html: htmlString!) else {
             XCTFail()
             return
         }
