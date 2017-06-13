@@ -13,6 +13,7 @@
 		947071441EEAF2BC00D66889 /* LADVMEldeListe.html in Resources */ = {isa = PBXBuildFile; fileRef = 947071431EEAF2BC00D66889 /* LADVMEldeListe.html */; };
 		947071461EEAF2F300D66889 /* MeldeListenParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947071451EEAF2F300D66889 /* MeldeListenParserTest.swift */; };
 		9470714C1EEB09EC00D66889 /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9470714B1EEB09EC00D66889 /* Fuzi.framework */; };
+		948199471EEEEF0E0070D464 /* meldung2.html in Resources */ = {isa = PBXBuildFile; fileRef = 948199461EEEEF0E0070D464 /* meldung2.html */; };
 		948751B71EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948751B61EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift */; };
 		949C3EB81EE07CF70077815E /* ResultAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C3EB71EE07CF70077815E /* ResultAttachment.swift */; };
 		949C3EBA1EE07E0A0077815E /* ResultAttachment+JSONDecodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C3EB91EE07E0A0077815E /* ResultAttachment+JSONDecodeable.swift */; };
@@ -73,6 +74,7 @@
 		947071471EEAFF3500D66889 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = Carthage/Build/iOS/Kanna.framework; sourceTree = "<group>"; };
 		947071491EEAFFD900D66889 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		9470714B1EEB09EC00D66889 /* Fuzi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fuzi.framework; path = Carthage/Build/iOS/Fuzi.framework; sourceTree = "<group>"; };
+		948199461EEEEF0E0070D464 /* meldung2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = meldung2.html; sourceTree = "<group>"; };
 		948751B61EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CompetitionResultDetails+JSONDecodable.swift"; sourceTree = "<group>"; };
 		949C3EB71EE07CF70077815E /* ResultAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultAttachment.swift; sourceTree = "<group>"; };
 		949C3EB91EE07E0A0077815E /* ResultAttachment+JSONDecodeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ResultAttachment+JSONDecodeable.swift"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		94B6BD6B1EA37278008CA6D5 /* LADVSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				948199461EEEEF0E0070D464 /* meldung2.html */,
 				947071431EEAF2BC00D66889 /* LADVMEldeListe.html */,
 				94B6BD6E1EA37278008CA6D5 /* Info.plist */,
 				941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */,
@@ -364,6 +367,7 @@
 			files = (
 				94B94A001EA6638100AE0E19 /* SearchAthletes.json in Resources */,
 				947071441EEAF2BC00D66889 /* LADVMEldeListe.html in Resources */,
+				948199471EEEEF0E0070D464 /* meldung2.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

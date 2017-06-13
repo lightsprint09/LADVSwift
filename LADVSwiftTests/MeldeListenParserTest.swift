@@ -40,4 +40,24 @@ class MeldeListenParserTest: XCTestCase {
         
         
     }
+    
+    func testParse2() {
+        //Given
+        let bundle = Bundle(for: MeldeListenParserTest.self)
+        let url = bundle.url(forResource: "meldung2", withExtension: "html")
+        
+        let htmlString = try? String(contentsOf: url!)
+        guard let parser = try? MeldungParser().parse(html: htmlString!) else {
+            XCTFail()
+            return
+        }
+        
+        //Then
+        XCTAssertEqual(parser.count, 10)
+        XCTAssertEqual(parser.first?.disciplins.first?.disciplin.dlvID, "800")
+        XCTAssertEqual(parser.first?.disciplins.last?.disciplin.dlvID, "WEI")
+        XCTAssertEqual(parser.first?.disciplins.count, 2)
+                
+        
+    }
 }

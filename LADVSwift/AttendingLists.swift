@@ -10,9 +10,9 @@ import Foundation
 import Fuzi
 
 public struct Attendee {
-    public let id: String
+    public let id: String?
     public let name: String
-    public let number: Int
+    public let number: Int?
     public let yearOfBirth: Int
 }
 
@@ -39,15 +39,23 @@ public struct MeldungParser {
     public init() {}
     
     func extract(atIndex index: Int, inNodes nodes: [XMLElement], age: Age) -> [AttendingDisciplins] {
-        let node = nodes[index + 1]
-        if let nodeClass = node.attr("class"), nodeClass == "disziplin" {
-            let id = node.children[0].attr("id")?.replacingOccurrences(of: age.dlvID, with: "")
-            let disciplin = Disciplin(ladvId: id!)
-            
-            return [AttendingDisciplins(requiredPerformance: extractRequiredPerformance(node: node), disciplin: disciplin, attendees: extract(atIndex: index, inNodes: nodes))]
-            
+        
+        let range = nodes[(index + 1)..<nodes.count]
+        let end = range.index(where: { $0.attr("class") == "klasse"})
+        guard let endIndex = end else {
+            return []
         }
-        return []
+        var result = [AttendingDisciplins]()
+        for i in (index )..<endIndex {
+            let node = nodes[i]
+            if let nodeClass = node.attr("class"), nodeClass == "disziplin" {
+                let id = node.children[0].attr("id")?.replacingOccurrences(of: age.dlvID, with: "")
+                let disciplin = Disciplin(ladvId: id!)
+                result.append(AttendingDisciplins(requiredPerformance: extractRequiredPerformance(node: node), disciplin: disciplin, attendees: extract(atIndex: index, inNodes: nodes)))
+                
+            }
+        }
+        return result
     }
     
     func extractRequiredPerformance(node: XMLElement) -> String? {
@@ -110,12 +118,12 @@ public struct MeldungParser {
     
     func extractAttendee(from attributes: [XMLElement]) -> Attendee {
         let number = Int(attributes[0].stringValue)
-        let nameLink = attributes[1].children[0]
-        let name = nameLink.stringValue
+        let nameLink = attributes[1].children.isEmpty ? nil : attributes[1].children[0]
+        let name = nameLink?.stringValue ?? attributes[1].stringValue
         let yearOfBirth = Int(attributes[2].stringValue)
-        let id = extractAttendeeId(href: nameLink.attr("href")!)
+        let id = nameLink.map { extractAttendeeId(href: $0.attr("href")!)}
         
-        return Attendee(id: id, name: name, number: number!, yearOfBirth: yearOfBirth!)
+        return Attendee(id: id, name: name, number: number, yearOfBirth: yearOfBirth!)
     }
 
     func extractAttendeeId(href: String) -> String {
