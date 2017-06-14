@@ -77,7 +77,7 @@ public struct MeldungParser {
         let node = nodes[index + 2]
         var result = [Meldung]()
         if let nodeClass = node.attr("class"), nodeClass == "teinzel" {
-            if node.children[0].children[0].children[0].stringValue.characters.count < 2 {
+            if node.children[0].children[0].children[4].stringValue.characters.count < 2 {
                 return extractStaffel(node: node)
             }
             for meldungNode in node.children[0].children {
@@ -103,7 +103,7 @@ public struct MeldungParser {
             
             var athletes = [Attendee]()
             let index = nodes.index(where: { $0.stringValue == teamNode.stringValue })! + 1
-            if !(index >= nodes.count - 1) {
+            if !(index > nodes.count - 1) {
                 for i in index..<nodes.count - 1 {
                     if nodes[i].attr("class") == "odd" {
                         break
@@ -122,7 +122,7 @@ public struct MeldungParser {
     func extractAttendee(from attributes: [XMLElement]) -> Attendee {
         let number = Int(attributes[0].stringValue)
         let nameLink = attributes[1].children.isEmpty ? nil : attributes[1].children[0]
-        let name = nameLink?.stringValue ?? attributes[1].stringValue
+        let name = nameLink?.stringValue ?? attributes[1].stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
         let yearOfBirth = Int(attributes[2].stringValue)
         let id = nameLink.map { extractAttendeeId(href: $0.attr("href")!)}
         
@@ -134,7 +134,6 @@ public struct MeldungParser {
         let index = newHref.range(of: "/")!
         
         return newHref.substring(to: index.lowerBound)
-
     }
     
     public func parse(html: Data) throws -> [MeldungPerAge] {
@@ -154,7 +153,7 @@ public struct MeldungParser {
         for (i, element) in elemets!.children.enumerated() {
             if let ageElement = element.attr("class"), ageElement == "klasse" {
                 let id = element.children[0].attr("id")
-                let age = Age(dlvID: id!)
+                let age = Age(any: id!)
                 result.append(MeldungPerAge(age: age, disciplins: extract(atIndex: i, inNodes: elemets!.children, age: age)))
             }
             

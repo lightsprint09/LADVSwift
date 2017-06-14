@@ -27,7 +27,19 @@ public struct Age {
             self.name = dlvID
             self.shortName = dlvID
             self.ladvID = dlvID
-            self.dlvID = dlvID        }
+            self.dlvID = dlvID
+        }
+    }
+    
+    init(any: String) {
+        if let newSelf = Age.all.first(where: { $0.dlvID == any }) ??  Age.all.first(where: { $0.shortName == any }) ??  Age.all.first(where: { $0.ladvID == any }) {
+            self = newSelf
+        } else {
+            self.name = any
+            self.shortName = any
+            self.ladvID = any
+            self.dlvID = any
+        }
     }
     
     public init(name: String, shortName: String, ladvID: String, dlvID: String) {

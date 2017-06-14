@@ -71,9 +71,10 @@ class MeldeListenParserTest: XCTestCase {
         }
         
         //Then
-//        XCTAssertEqual(parser.count, 10)
-//        XCTAssertEqual(parser.first?.disciplins.first?.disciplin.dlvID, "800")
-//        XCTAssertEqual(parser.first?.disciplins.last?.disciplin.dlvID, "WEI")
-//        XCTAssertEqual(parser.first?.disciplins.count, 2)
+        XCTAssertEqual(parser[3].age.dlvID, "M6")
+        XCTAssertEqual(parser[3].disciplins.first?.attendees.count, 2)
+        let x = parser[3].disciplins.first?.attendees
+        XCTAssertEqual(parser[3].disciplins.first?.attendees.first?.attendees.first?.name, "Moritz Venker")
+        XCTAssertEqual(parser[3].disciplins.first?.attendees.last?.attendees.first?.name, "Raphael Ernst")
     }
 }
