@@ -38,7 +38,7 @@ public struct MeldungPerAge {
 public struct MeldungParser {
     public init() {}
     
-    func extract(atIndex index: Int, inNodes nodes: [XMLElement], age: Age) -> [AttendingDisciplins] {
+    func extract(atIndex index: Int, inNodes nodes: [XMLElement], ageID: String) -> [AttendingDisciplins] {
         
         let range = nodes[(index + 1)..<nodes.count]
         let end = range.index(where: { $0.attr("class") == "klasse"})
@@ -49,7 +49,7 @@ public struct MeldungParser {
         for i in (index )..<endIndex {
             let node = nodes[i]
             if let nodeClass = node.attr("class"), nodeClass == "disziplin" {
-                let id = node.children[0].attr("id")?.replacingOccurrences(of: age.dlvID, with: "")
+                let id = node.children[0].attr("id")?.replacingOccurrences(of: ageID, with: "")
                 let disciplin = Disciplin(ladvId: id!)
                 result.append(AttendingDisciplins(requiredPerformance: extractRequiredPerformance(node: node), disciplin: disciplin, attendees: extract(atIndex: index, inNodes: nodes)))
                 
@@ -154,7 +154,7 @@ public struct MeldungParser {
             if let ageElement = element.attr("class"), ageElement == "klasse" {
                 let id = element.children[0].attr("id")
                 let age = Age(any: id!)
-                result.append(MeldungPerAge(age: age, disciplins: extract(atIndex: i, inNodes: elemets!.children, age: age)))
+                result.append(MeldungPerAge(age: age, disciplins: extract(atIndex: i, inNodes: elemets!.children, ageID: id!)))
             }
             
         }
