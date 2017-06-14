@@ -103,14 +103,17 @@ public struct MeldungParser {
             
             var athletes = [Attendee]()
             let index = nodes.index(where: { $0.stringValue == teamNode.stringValue })! + 1
-            for i in index..<nodes.count - 1 {
-                if nodes[i].attr("class") == "odd" {
-                    break
+            if !(index >= nodes.count - 1) {
+                for i in index..<nodes.count - 1 {
+                    if nodes[i].attr("class") == "odd" {
+                        break
+                    }
+                    let attributes = nodes[i].children
+                    let attendee = extractAttendee(from: attributes)
+                    athletes.append(attendee)
                 }
-                let attributes = nodes[i].children
-                let attendee = extractAttendee(from: attributes)
-                athletes.append(attendee)
             }
+            
             
             return Meldung(performance: performance, rank: rank, region: region!, clubName: club, attendees: athletes)
         }
