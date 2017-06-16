@@ -76,5 +76,9 @@ class MeldeListenParserTest: XCTestCase {
         let x = parser[3].disciplins.first?.attendees
         XCTAssertEqual(parser[3].disciplins.first?.attendees.first?.attendees.first?.name, "Moritz Venker")
         XCTAssertEqual(parser[3].disciplins.first?.attendees.last?.attendees.first?.name, "Raphael Ernst")
+        
+        XCTAssertEqual(parser[6].disciplins[2].attendees.count, 6)
+        XCTAssertEqual(parser[6].disciplins[2].disciplin.dlvID, "3-K")
+        print(parser[6].disciplins)
     }
 }
