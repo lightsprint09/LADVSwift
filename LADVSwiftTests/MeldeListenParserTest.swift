@@ -76,6 +76,7 @@ class MeldeListenParserTest: XCTestCase {
         XCTAssertEqual(parser[3].disciplins.first?.attendees.count, 2)
         XCTAssertEqual(parser[3].disciplins.first?.attendees.first?.attendees.first?.name, "Moritz Venker")
         XCTAssertEqual(parser[3].disciplins.first?.attendees.last?.attendees.first?.name, "Raphael Ernst")
+        XCTAssertNotNil(parser[3].disciplins.first?.attendees.last?.attendees.first?.toAthlete())
         
         XCTAssertEqual(parser[6].disciplins[2].attendees.count, 6)
         XCTAssertEqual(parser[6].disciplins[2].disciplin.dlvID, "3-K")

@@ -9,11 +9,29 @@
 import Foundation
 import Fuzi
 
+struct MinimalAthlete: AthleteDescribing {
+    let ladvId: Int
+    let firstname: String
+    let lastname: String
+    let yearOfBirth: Int
+    
+}
+
 public struct Attendee {
     public let id: String?
     public let name: String
     public let number: Int?
     public let yearOfBirth: Int
+}
+
+extension Attendee {
+    public func toAthlete() -> AthleteDescribing? {
+        let splittedName = name.components(separatedBy: " ")
+        guard let id = id, let ladvId = Int(id), splittedName.count > 1 else {
+            return nil
+        }
+        return MinimalAthlete(ladvId: ladvId, firstname: splittedName[0], lastname: splittedName[1], yearOfBirth: yearOfBirth)
+    }
 }
 
 public struct Meldung {
