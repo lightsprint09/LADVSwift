@@ -40,13 +40,13 @@ public struct MeldungParser {
     
     func extract(atIndex index: Int, inNodes nodes: [XMLElement], ageID: String) -> [AttendingDisciplins] {
         let range = nodes[(index + 1)..<nodes.count]
-        let end = range.index(where: { $0.attr("class") == "klasse"})
-        guard let endIndex = end else {
-            return []
-        }
+        let end = range.index(where: { $0.attr("class") == "klasse"}) ?? nodes.count - 1
+//        guard let endIndex = end else {
+//            return []
+//        }
         var result = [AttendingDisciplins]()
         var attendeeIndex = 0
-        for i in (index )..<endIndex {
+        for i in (index )..<end {
             let node = nodes[i]
             if let nodeClass = node.attr("class"), nodeClass == "disziplin" {
                 let id = node.children[0].attr("id")?.replacingOccurrences(of: ageID, with: "")
@@ -89,11 +89,13 @@ public struct MeldungParser {
             }
             for meldungNode in node.children[0].children {
                 let attributes = meldungNode.children
-                let region = Region(id: attributes[3].stringValue)
-                let performance = attributes[5].stringValue
+                let regionId = attributes[3].stringValue
                 let club = attributes[4].stringValue
+                let region = Region(id: regionId) ?? Region(id: regionId, name: club)
+                let performance = attributes[5].stringValue
+                
                 let attendee = extractAttendee(from: attributes)
-                result.append(Meldung(performance: performance, rank: nil, region: region!, clubName: club, attendees: [attendee]))
+                result.append(Meldung(performance: performance, rank: nil, region: region, clubName: club, attendees: [attendee]))
             }
         }
         return result

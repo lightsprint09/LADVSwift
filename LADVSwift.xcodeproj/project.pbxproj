@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		941D024F1EA37BFC00616F03 /* CompetitionSearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D024E1EA37BFC00616F03 /* CompetitionSearchFilter.swift */; };
 		941D02511EA37DB300616F03 /* CompetitionFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */; };
+		94602C991EF66BF60078E6AC /* meldung4.html in Resources */ = {isa = PBXBuildFile; fileRef = 94602C981EF66BF60078E6AC /* meldung4.html */; };
 		947071421EEAB8F300D66889 /* AttendingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947071411EEAB8F300D66889 /* AttendingLists.swift */; };
 		947071441EEAF2BC00D66889 /* LADVMEldeListe.html in Resources */ = {isa = PBXBuildFile; fileRef = 947071431EEAF2BC00D66889 /* LADVMEldeListe.html */; };
 		947071461EEAF2F300D66889 /* MeldeListenParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947071451EEAF2F300D66889 /* MeldeListenParserTest.swift */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		941D024E1EA37BFC00616F03 /* CompetitionSearchFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionSearchFilter.swift; sourceTree = "<group>"; };
 		941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionFilterTests.swift; sourceTree = "<group>"; };
+		94602C981EF66BF60078E6AC /* meldung4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = meldung4.html; sourceTree = "<group>"; };
 		9470713F1EEAB70C00D66889 /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/iOS/SwiftSoup.framework; sourceTree = "<group>"; };
 		947071411EEAB8F300D66889 /* AttendingLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingLists.swift; sourceTree = "<group>"; };
 		947071431EEAF2BC00D66889 /* LADVMEldeListe.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = LADVMEldeListe.html; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				948199481EF1869B0070D464 /* meldung3.html */,
 				948199461EEEEF0E0070D464 /* meldung2.html */,
+				94602C981EF66BF60078E6AC /* meldung4.html */,
 				947071431EEAF2BC00D66889 /* LADVMEldeListe.html */,
 				94B6BD6E1EA37278008CA6D5 /* Info.plist */,
 				941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */,
@@ -368,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94602C991EF66BF60078E6AC /* meldung4.html in Resources */,
 				94B94A001EA6638100AE0E19 /* SearchAthletes.json in Resources */,
 				947071441EEAF2BC00D66889 /* LADVMEldeListe.html in Resources */,
 				948199471EEEEF0E0070D464 /* meldung2.html in Resources */,

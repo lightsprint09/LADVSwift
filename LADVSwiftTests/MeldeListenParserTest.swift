@@ -60,6 +60,7 @@ class MeldeListenParserTest: XCTestCase {
     }
     
     func testParse3() {
+        //https://ladv.de/meldung/teilnehmer/14637
         //Given
         let bundle = Bundle(for: MeldeListenParserTest.self)
         let url = bundle.url(forResource: "meldung3", withExtension: "html")
@@ -73,12 +74,25 @@ class MeldeListenParserTest: XCTestCase {
         //Then
         XCTAssertEqual(parser[3].age.dlvID, "M6")
         XCTAssertEqual(parser[3].disciplins.first?.attendees.count, 2)
-        let x = parser[3].disciplins.first?.attendees
         XCTAssertEqual(parser[3].disciplins.first?.attendees.first?.attendees.first?.name, "Moritz Venker")
         XCTAssertEqual(parser[3].disciplins.first?.attendees.last?.attendees.first?.name, "Raphael Ernst")
         
         XCTAssertEqual(parser[6].disciplins[2].attendees.count, 6)
         XCTAssertEqual(parser[6].disciplins[2].disciplin.dlvID, "3-K")
-        print(parser[6].disciplins)
+    }
+    
+    func testParser4() {
+        //https://ladv.de/meldung/teilnehmer/14136
+        let bundle = Bundle(for: MeldeListenParserTest.self)
+        let url = bundle.url(forResource: "meldung4", withExtension: "html")
+        
+        let htmlString = try? String(contentsOf: url!)
+        guard let parser = try? MeldungParser().parse(html: htmlString!) else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssertEqual(parser.last?.disciplins.count, 11)
+        XCTAssertEqual(parser.last?.disciplins.last?.attendees.count, 3)
     }
 }
