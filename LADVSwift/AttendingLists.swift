@@ -70,8 +70,8 @@ public struct MeldungParser {
             let range2 = Range(uncheckedBounds: (range.upperBound, stringValue.endIndex))
             
             let endRange: Range<String.Index>!
-            if node.stringValue.contains(";") {
-                endRange = node.stringValue.range(of: ";", options: [], range: range2, locale: nil)
+            if let end = node.stringValue.range(of: ";", options: [], range: range2, locale: nil) {
+                endRange = end
             } else {
                  endRange = node.stringValue.range(of: ")", options: [], range: range2, locale: nil)
             }
