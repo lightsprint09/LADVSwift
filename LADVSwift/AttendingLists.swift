@@ -68,9 +68,16 @@ public struct MeldungParser {
             let stringValue = node.stringValue
             let range = stringValue.range(of: "Mindestleistung: ")!
             let range2 = Range(uncheckedBounds: (range.upperBound, stringValue.endIndex))
-            let endRange = node.stringValue.range(of: ")", options: [], range: range2, locale: nil)
             
-            return stringValue.substring(with: Range(uncheckedBounds: (range.upperBound, endRange!.lowerBound)))
+            let endRange: Range<String.Index>!
+            if node.stringValue.contains(";") {
+                endRange = node.stringValue.range(of: ";", options: [], range: range2, locale: nil)
+            } else {
+                 endRange = node.stringValue.range(of: ")", options: [], range: range2, locale: nil)
+            }
+            
+            
+            return stringValue.substring(with: Range(uncheckedBounds: (range.upperBound, endRange.lowerBound)))
         }
         return nil
     }
