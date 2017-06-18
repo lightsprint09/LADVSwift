@@ -93,6 +93,7 @@ class MeldeListenParserTest: XCTestCase {
         }
         
         XCTAssertEqual(parser.last?.disciplins.count, 11)
+        XCTAssertEqual(parser.last?.disciplins[8].disciplin.name, "Weitsprung")
         XCTAssertEqual(parser.last?.disciplins.last?.attendees.count, 3)
     }
 }

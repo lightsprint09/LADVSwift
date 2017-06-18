@@ -40,17 +40,17 @@ public struct MeldungParser {
     
     func extract(atIndex index: Int, inNodes nodes: [XMLElement], ageID: String) -> [AttendingDisciplins] {
         let range = nodes[(index + 1)..<nodes.count]
-        let end = range.index(where: { $0.attr("class") == "klasse"}) ?? nodes.count - 1
-//        guard let endIndex = end else {
-//            return []
-//        }
+        let endIndex = range.index(where: { $0.attr("class") == "klasse"}) ?? nodes.count - 1
         var result = [AttendingDisciplins]()
         var attendeeIndex = 0
-        for i in (index )..<end {
+        for i in index..<endIndex {
             let node = nodes[i]
             if let nodeClass = node.attr("class"), nodeClass == "disziplin" {
-                let id = node.children[0].attr("id")?.replacingOccurrences(of: ageID, with: "")
-                let disciplin = Disciplin(ladvId: id!)
+                
+                let id = node.children[0].attr("id")!
+                let ageRange = id.range(of: ageID)!
+                let ladvId = id.replacingCharacters(in: ageRange, with: "")
+                let disciplin = Disciplin(ladvId: ladvId)
                 let attendees = extract(atIndex: index + attendeeIndex, inNodes: nodes)
                 result.append(AttendingDisciplins(requiredPerformance: extractRequiredPerformance(node: node), disciplin: disciplin, attendees: attendees))
                 if attendees.isEmpty {
@@ -58,8 +58,6 @@ public struct MeldungParser {
                 } else {
                     attendeeIndex += 2
                 }
-                
-                
             }
         }
         return result
