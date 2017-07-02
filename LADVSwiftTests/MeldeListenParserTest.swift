@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import LADVSwift
+@testable import LADVSwift
 
 class MeldeListenParserTest: XCTestCase {
     
@@ -57,6 +57,16 @@ class MeldeListenParserTest: XCTestCase {
         XCTAssertEqual(parser.first?.disciplins.first?.disciplin.dlvID, "800")
         XCTAssertEqual(parser.first?.disciplins.last?.disciplin.dlvID, "WEI")
         XCTAssertEqual(parser.first?.disciplins.count, 2)
+    }
+    
+    func testPerformance() {
+        let bundle = Bundle(for: MeldeListenParserTest.self)
+        let url = bundle.url(forResource: "meldung2", withExtension: "html")
+        
+        let htmlString = try? String(contentsOf: url!)
+        measure({
+            try? MeldungParser().parse(html: htmlString!)
+        })
     }
     
     func testParse3() {

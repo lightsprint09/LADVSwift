@@ -32,7 +32,7 @@ public struct Age {
     }
     
     init(any: String) {
-        if let newSelf = Age.all.first(where: { $0.dlvID == any }) ??  Age.all.first(where: { $0.shortName == any }) ??  Age.all.first(where: { $0.ladvID == any }) {
+        if let newSelf = Age.all.first(where: { $0.dlvID == any }) ?? Age.all.first(where: { $0.shortName == any }) ?? Age.all.first(where: { $0.ladvID == any }) ?? Age.all.first(where: { any.contains($0.dlvID) }) {
             self = newSelf
         } else {
             self.name = any
@@ -48,7 +48,6 @@ public struct Age {
         self.ladvID = ladvID
         self.dlvID = dlvID
     }
-
     
     public static let all: [Age] = [Age(name: "Kinder M3", shortName: "M03", ladvID: "M3", dlvID: "M3"),
                              Age(name: "Kinder M4", shortName: "M04", ladvID: "M4", dlvID: "M4"),
