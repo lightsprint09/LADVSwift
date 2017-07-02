@@ -27,6 +27,18 @@ public struct Disciplin {
         }
     }
     
+    public init(ladvId: String) {
+        if let newSelf = Disciplin.all.first(where: { $0.ladvID == ladvId }) {
+            self = newSelf
+        } else {
+            self.name = ladvId
+            self.shortName = ladvId
+            self.ladvID = ladvId
+            self.dlvID = ladvId
+            self.unit = ""
+        }
+    }
+    
     public init(name: String, shortName: String, ladvID: String, dlvID: String, unit: String) {
         self.name = name
         self.shortName = shortName

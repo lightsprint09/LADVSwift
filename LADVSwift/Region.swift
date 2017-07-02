@@ -12,8 +12,17 @@ public struct Region {
     public let id: String
     public let name: String
     
-    static func region(forId id: String) -> Region {
-        return all.first(where: { $0.id == id })!
+    public init(id: String, name: String) {
+        self.id = id
+        self.name = name
+    }
+    
+    init?(id: String) {
+        if let region = Region.all.first(where: { $0.id == id }) {
+            self = region
+        } else {
+            return nil
+        }
     }
     
     public static let all = [Region(id: "BA", name: "Baden"),

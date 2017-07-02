@@ -39,7 +39,12 @@ public struct CompetitionWebService {
         return competitionDetails(for: [competitionId]).map(transform: { $0.first! })
     }
     
-    
+    public func meldungen(for competitionId: Int) -> Resource<[MeldungPerAge]> {
+        let request = NetworkRequest(path: "/meldung/teilnehmer/\(competitionId)", baseURLKey: LADV.ladvURLKey)
+        let parser = MeldungParser()
+        
+        return Resource(request: request, parse: { try parser.parse(html: $0) })
+    }
 }
 
 extension CompetitionWebService {

@@ -16,7 +16,7 @@ extension AthletDetails: JSONCodable {
         athletnumber = try decoder.decode("athletnumber")
         firstname = try decoder.decode("forename")
         lastname = try decoder.decode("surname")
-        gender = try decoder.decode("sex")
+        gender = Gender(string: try decoder.decode("sex"))!
         yearOfBith = try decoder.decode("birthyear")
         vereinNumber = try decoder.decode("vereinnumber")
         vereinname = try decoder.decode("vereinname")
