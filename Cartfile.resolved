@@ -1,2 +1,3 @@
+github "cezheng/Fuzi" "1.0.1"
 github "dbsystel/dbnetworkstack" "0.4.0"
-github "matthewcheok/JSONCodable" "7088d80dafbd88d80ac352b9426971d010d559d0"
+github "matthewcheok/JSONCodable" "3e68b267d4898c7ce92b8897cdc1ee7447f28200"

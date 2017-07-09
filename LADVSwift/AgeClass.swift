@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension Age: Identifieable {
+    public var id: Int {
+        return dlvID.hashValue
+    }
+}
+
 public struct Age {
     public let name: String
     public let shortName: String
@@ -21,7 +27,19 @@ public struct Age {
             self.name = dlvID
             self.shortName = dlvID
             self.ladvID = dlvID
-            self.dlvID = dlvID        }
+            self.dlvID = dlvID
+        }
+    }
+    
+    init(any: String) {
+        if let newSelf = Age.all.first(where: { $0.dlvID == any }) ?? Age.all.first(where: { $0.shortName == any }) ?? Age.all.first(where: { $0.ladvID == any }) ?? Age.all.first(where: { any.contains($0.dlvID) }) {
+            self = newSelf
+        } else {
+            self.name = any
+            self.shortName = any
+            self.ladvID = any
+            self.dlvID = any
+        }
     }
     
     public init(name: String, shortName: String, ladvID: String, dlvID: String) {
@@ -30,7 +48,6 @@ public struct Age {
         self.ladvID = ladvID
         self.dlvID = dlvID
     }
-
     
     public static let all: [Age] = [Age(name: "Kinder M3", shortName: "M03", ladvID: "M3", dlvID: "M3"),
                              Age(name: "Kinder M4", shortName: "M04", ladvID: "M4", dlvID: "M4"),

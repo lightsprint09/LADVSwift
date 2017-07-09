@@ -1,2 +1,3 @@
 github "dbsystel/dbnetworkstack" == 0.4
 github "matthewcheok/JSONCodable" "master"
+github "cezheng/Fuzi" ~> 1.0.0

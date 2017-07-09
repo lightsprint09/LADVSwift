@@ -20,6 +20,10 @@ extension CompetitionDescribing {
     public var ladvURL: URL {
         return URL(string: "https://ladv.de/ausschreibung/detail/\(id)")!
     }
+    
+    public var attendeesURL: URL {
+        return URL(string: "https://ladv.de/meldung/teilnehmer/\(id)")!
+    }
 }
 
 public struct Competition {
