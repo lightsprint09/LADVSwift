@@ -14,14 +14,18 @@ extension CompetitionDetails: JSONMappable {}
 extension CompetitionResultDetails: JSONMappable {}
 
 public struct CompetitionWebService {
-    public init() {}
+    let baseURL: URL
+    
+    public init(APIKey: String) {
+        self.baseURL = URL(string: "http://ladv.de/api/\(APIKey)/")!
+    }
+    
     public func searchCompetitions(filter: CompetitionFilter) -> Resource<Array<Competition>> {
         var parameters = filter.toDictionary()
         parameters["mostCurrent"] = true
         parameters["limit"] = 100
         
-        let request = NetworkRequest(path: "ausList", baseURLKey: LADV.ladvURLKey,
-                                     parameter: parameters)
+        let request = URLRequest(path: "ausList", baseURL: baseURL, parameters: parameters)
         
         return JSONArrayResource(request: request).wrapped()
     }
@@ -29,8 +33,7 @@ public struct CompetitionWebService {
     public func competitionDetails(for competitionIds: [Int]) -> Resource<[CompetitionDetails]> {
         let ids = competitionIds.map( { "\($0)" } ).joined(separator: ",")
         let parameters: [String: Any] = ["id": ids, "all": true, "wettbewerbe": true]
-        let request = NetworkRequest(path: "ausDetail", baseURLKey: LADV.ladvURLKey,
-                                     parameter: parameters)
+        let request = URLRequest(path: "ausDetail", baseURL: baseURL, parameters: parameters)
         
         return JSONArrayResource(request: request).wrapped()
     }
@@ -40,7 +43,7 @@ public struct CompetitionWebService {
     }
     
     public func meldungen(for competitionId: Int) -> Resource<[MeldungPerAge]> {
-        let request = NetworkRequest(path: "/meldung/teilnehmer/\(competitionId)", baseURLKey: LADV.ladvURLKey)
+        let request = URLRequest(path: "/meldung/teilnehmer/\(competitionId)", baseURL: baseURL)
         let parser = MeldungParser()
         
         return Resource(request: request, parse: { try parser.parse(html: $0) })

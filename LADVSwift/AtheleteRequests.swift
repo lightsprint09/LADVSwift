@@ -8,29 +8,34 @@
 
 import Foundation
 import DBNetworkStack
+import JSONCodable
 
 extension Athlete: JSONMappable {}
 extension AthletDetails: JSONMappable {}
 
 public struct AthleteWebService {
-    public init() {}
+    
+    let baseURL: URL
+    
+    public init(APIKey: String) {
+       self.baseURL = URL(string: "http://ladv.de/api/\(APIKey)/")!
+    }
     
     public func searchAthlets(with name: String, `in` region: Region? = nil) -> Resource<[Athlete]> {
         var parameter: [String: Any] =  ["query": "*\(name)*"]
         parameter["lv"] = region?.id
-        let request = NetworkRequest(path: "athletQuery", baseURLKey: LADV.ladvURLKey,
-                                     parameter: parameter)
+
+        let request = URLRequest(path: "athletQuery", baseURL: baseURL, parameters: parameter)
         
-        return JSONArrayResource(request: request).wrapped()
+        return Resource(resource: JSONArrayResource(request: request))
     }
     
     public func athletDeatils(for athlets: [AthleteDescribing], datayear: Int) -> Resource<[AthletDetails]> {
         let ids = athlets.map({ "\($0.ladvId)" }).joined(separator: ",")
         let parameter: [String: Any] = ["id": ids, "all": "true", "datayear": datayear]
-        let request = NetworkRequest(path: "athletDetail", baseURLKey: LADV.ladvURLKey,
-                                     parameter: parameter)
+        let request = URLRequest(path: "athletDetail", baseURL: baseURL, parameters: parameter)
         
-        return JSONArrayResource(request: request).wrapped()
+        return Resource(resource: JSONArrayResource(request: request))
     }
     
     public func athletDeatils(for athlet: AthleteDescribing, datayear: Int) -> Resource<AthletDetails?> {

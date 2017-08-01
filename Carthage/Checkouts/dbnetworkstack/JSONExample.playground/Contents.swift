@@ -3,32 +3,25 @@
 import DBNetworkStack
 import PlaygroundSupport
 
+//Setup Playground environment
 PlaygroundPage.current.needsIndefiniteExecution = true
+URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
 
-let url: URL! = URL(string: "https://httpbin.org")
-let baseURLKey = "httpBin"
-
+//Prepare NetworkAccess & NetworkService
 let networkAccess = URLSession(configuration: .default)
-let networkService = NetworkService(networkAccess: networkAccess, endPoints: [baseURLKey: url])
+let networkService = NetworkService(networkAccess: networkAccess)
 
-struct IPOrigin {
-    let ipAdress: String
+struct IPOrigin: Decodable {
+    let origin: String
 }
 
-extension IPOrigin: JSONMappable {
-    init(object: Dictionary<String, AnyObject>) throws {
-        guard let ipAdress = object["origin"] as? String else {
-            throw DBNetworkStackError.serializationError(description: "", data: nil)
-        }
-        self.ipAdress = ipAdress
-    }
-}
+let url: URL! = URL(string: "https://www.httpbin.org")
+let request = URLRequest(path: "ip", baseURL: url)
 
-let request = NetworkRequest(path: "/ip", baseURLKey: baseURLKey)
-let resource = JSONResource<IPOrigin>(request: request)
+let resource = Resource<IPOrigin>(request: request, decoder: JSONDecoder())
 
 networkService.request(resource, onCompletion: { origin in
     print(origin)
-    }, onError: { _ in
-        //Handle errors
+}, onError: { error in
+    print(error)
 })
