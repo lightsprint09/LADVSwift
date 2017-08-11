@@ -17,8 +17,8 @@ public struct CompetitionFilter {
 }
 
 extension CompetitionFilter {
-    func toDictionary() -> [String: Any] {
-        var parameters = [String: Any]()
+    func toDictionary() -> [String: String] {
+        var parameters = [String: String]()
         parameters["klasse"] = ageClasses?.asQueryParameter{ $0.dlvID }
         parameters["disziplin"] = disciplins?.asQueryParameter{ $0.dlvID }
         parameters["lv"] = regions?.asQueryParameter { $0.id }

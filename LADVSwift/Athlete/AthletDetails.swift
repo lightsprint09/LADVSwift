@@ -9,18 +9,20 @@
 import Foundation
 
 public struct AthletDetails {
-    let id: Int
+    public let id: Int
     public let athletnumber: Int
     public let firstname: String
     public let lastname: String
     public let gender: Gender
-    public let yearOfBith: Int
+    public let yearOfBirth: Int
     public let vereinNumber: Int
     public let vereinname: String
     public let landesverband: String
     public let competitions: [Competition]
     public let performances: [Performance]
 }
+
+extension AthletDetails: AthleteDescribing { }
 
 public extension AthletDetails{
     func sortedCompetitions() -> ([[Competition]], description: [String]) {
@@ -36,7 +38,7 @@ public extension AthletDetails {
         let newCompetitions = self.competitions + detail.competitions
         let performances = self.performances + detail.performances
         
-        return AthletDetails(id: id, athletnumber: athletnumber, firstname: firstname, lastname: lastname, gender: gender, yearOfBith: yearOfBith, vereinNumber: vereinNumber, vereinname: vereinname, landesverband: landesverband, competitions: Array(Set(newCompetitions)).sorted(by: { $0.date > $1.date }), performances: Array(Set(performances)).sorted(by: { $0.date > $1.date }))
+        return AthletDetails(id: id, athletnumber: athletnumber, firstname: firstname, lastname: lastname, gender: gender, yearOfBirth: yearOfBirth, vereinNumber: vereinNumber, vereinname: vereinname, landesverband: landesverband, competitions: Array(Set(newCompetitions)).sorted(by: { $0.date > $1.date }), performances: Array(Set(performances)).sorted(by: { $0.date > $1.date }))
     }
 }
 

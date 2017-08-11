@@ -9,11 +9,10 @@
 import Foundation
 
 struct MinimalAthlete: AthleteDescribing {
-    let ladvId: Int
+    let id: Int
     let firstname: String
     let lastname: String
     let yearOfBirth: Int
-    
 }
 
 public struct Attendee {
@@ -29,7 +28,7 @@ extension Attendee {
         guard let id = id, let ladvId = Int(id), splittedName.count > 1 else {
             return nil
         }
-        return MinimalAthlete(ladvId: ladvId, firstname: splittedName[0], lastname: splittedName[1], yearOfBirth: yearOfBirth)
+        return MinimalAthlete(id: ladvId, firstname: splittedName[0], lastname: splittedName[1], yearOfBirth: yearOfBirth)
     }
 }
 

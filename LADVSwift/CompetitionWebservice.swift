@@ -22,8 +22,8 @@ public struct CompetitionWebService {
     
     public func searchCompetitions(filter: CompetitionFilter) -> Resource<Array<Competition>> {
         var parameters = filter.toDictionary()
-        parameters["mostCurrent"] = true
-        parameters["limit"] = 100
+        parameters["mostCurrent"] = "\(true)"
+        parameters["limit"] = "\(100)"
         
         let request = URLRequest(path: "ausList", baseURL: baseURL, parameters: parameters)
         
@@ -32,7 +32,7 @@ public struct CompetitionWebService {
     
     public func competitionDetails(for competitionIds: [Int]) -> Resource<[CompetitionDetails]> {
         let ids = competitionIds.map( { "\($0)" } ).joined(separator: ",")
-        let parameters: [String: Any] = ["id": ids, "all": true, "wettbewerbe": true]
+        let parameters = ["id": "\(ids)", "all": "\(true)", "wettbewerbe": "\(true)"]
         let request = URLRequest(path: "ausDetail", baseURL: baseURL, parameters: parameters)
         
         return JSONArrayResource(request: request).wrapped()

@@ -31,7 +31,7 @@
 		94B6BD8C1EA37498008CA6D5 /* CompetitionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD851EA37498008CA6D5 /* CompetitionCategory.swift */; };
 		94B6BD8D1EA37498008CA6D5 /* CompetitionResultDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD861EA37498008CA6D5 /* CompetitionResultDetails.swift */; };
 		94B6BD8E1EA37498008CA6D5 /* Attachement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD871EA37498008CA6D5 /* Attachement.swift */; };
-		94B6BD991EA374A8008CA6D5 /* Athlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD8F1EA374A8008CA6D5 /* Athlet.swift */; };
+		94B6BD991EA374A8008CA6D5 /* Athlete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD8F1EA374A8008CA6D5 /* Athlete.swift */; };
 		94B6BD9A1EA374A8008CA6D5 /* AthletDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD901EA374A8008CA6D5 /* AthletDetails.swift */; };
 		94B6BD9B1EA374A8008CA6D5 /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD911EA374A8008CA6D5 /* Performance.swift */; };
 		94B6BD9C1EA374A8008CA6D5 /* Disciplin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD921EA374A8008CA6D5 /* Disciplin.swift */; };
@@ -98,7 +98,7 @@
 		94B6BD851EA37498008CA6D5 /* CompetitionCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionCategory.swift; sourceTree = "<group>"; };
 		94B6BD861EA37498008CA6D5 /* CompetitionResultDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionResultDetails.swift; sourceTree = "<group>"; };
 		94B6BD871EA37498008CA6D5 /* Attachement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachement.swift; sourceTree = "<group>"; };
-		94B6BD8F1EA374A8008CA6D5 /* Athlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Athlet.swift; sourceTree = "<group>"; };
+		94B6BD8F1EA374A8008CA6D5 /* Athlete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Athlete.swift; sourceTree = "<group>"; };
 		94B6BD901EA374A8008CA6D5 /* AthletDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AthletDetails.swift; sourceTree = "<group>"; };
 		94B6BD911EA374A8008CA6D5 /* Performance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
 		94B6BD921EA374A8008CA6D5 /* Disciplin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disciplin.swift; sourceTree = "<group>"; };
@@ -154,6 +154,31 @@
 				941D024E1EA37BFC00616F03 /* CompetitionSearchFilter.swift */,
 			);
 			name = Webservice;
+			sourceTree = "<group>";
+		};
+		943D8A451F3DCCD50032A43C /* Competition */ = {
+			isa = PBXGroup;
+			children = (
+				94B6BD811EA37498008CA6D5 /* Competition.swift */,
+				94B6BD821EA37498008CA6D5 /* CompetitionDetails.swift */,
+				94B6BD831EA37498008CA6D5 /* CompetitionLocation.swift */,
+				94B6BD841EA37498008CA6D5 /* CompetitionKind.swift */,
+				94B6BD851EA37498008CA6D5 /* CompetitionCategory.swift */,
+				94B6BD861EA37498008CA6D5 /* CompetitionResultDetails.swift */,
+			);
+			path = Competition;
+			sourceTree = "<group>";
+		};
+		943D8A461F3DCCF30032A43C /* Athlete */ = {
+			isa = PBXGroup;
+			children = (
+				94B6BD8F1EA374A8008CA6D5 /* Athlete.swift */,
+				94B6BD901EA374A8008CA6D5 /* AthletDetails.swift */,
+				94B6BD941EA374A8008CA6D5 /* AgeClass.swift */,
+				94B6BD971EA374A8008CA6D5 /* AthleteDescribing.swift */,
+				94B6BD981EA374A8008CA6D5 /* Gender.swift */,
+			);
+			path = Athlete;
 			sourceTree = "<group>";
 		};
 		94B6BD541EA37278008CA6D5 = {
@@ -217,24 +242,15 @@
 		94B6BD7A1EA373E8008CA6D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				94B6BD811EA37498008CA6D5 /* Competition.swift */,
-				94B6BD821EA37498008CA6D5 /* CompetitionDetails.swift */,
-				94B6BD831EA37498008CA6D5 /* CompetitionLocation.swift */,
-				94B6BD841EA37498008CA6D5 /* CompetitionKind.swift */,
-				94B6BD851EA37498008CA6D5 /* CompetitionCategory.swift */,
-				94B6BD861EA37498008CA6D5 /* CompetitionResultDetails.swift */,
+				943D8A461F3DCCF30032A43C /* Athlete */,
+				943D8A451F3DCCD50032A43C /* Competition */,
 				94B6BD871EA37498008CA6D5 /* Attachement.swift */,
 				949C3EB71EE07CF70077815E /* ResultAttachment.swift */,
-				94B6BD8F1EA374A8008CA6D5 /* Athlet.swift */,
-				94B6BD901EA374A8008CA6D5 /* AthletDetails.swift */,
 				94B6BD911EA374A8008CA6D5 /* Performance.swift */,
 				94B6BD921EA374A8008CA6D5 /* Disciplin.swift */,
 				94B6BD931EA374A8008CA6D5 /* PerformanceOfDisciplin.swift */,
-				94B6BD941EA374A8008CA6D5 /* AgeClass.swift */,
 				94B6BD951EA374A8008CA6D5 /* Region.swift */,
 				94B6BD961EA374A8008CA6D5 /* Identifieable.swift */,
-				94B6BD971EA374A8008CA6D5 /* AthleteDescribing.swift */,
-				94B6BD981EA374A8008CA6D5 /* Gender.swift */,
 				947071411EEAB8F300D66889 /* AttendingLists.swift */,
 			);
 			name = Model;
@@ -423,7 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94B6BD8A1EA37498008CA6D5 /* CompetitionLocation.swift in Sources */,
-				94B6BD991EA374A8008CA6D5 /* Athlet.swift in Sources */,
+				94B6BD991EA374A8008CA6D5 /* Athlete.swift in Sources */,
 				94B6BD8B1EA37498008CA6D5 /* CompetitionKind.swift in Sources */,
 				94C8784C1EAFD2DB00B98393 /* LADV.swift in Sources */,
 				94B6BDA11EA374A8008CA6D5 /* AthleteDescribing.swift in Sources */,

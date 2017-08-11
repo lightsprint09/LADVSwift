@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol AthleteDescribing {
-    var ladvId: Int { get }
+    var id: Int { get }
     var firstname: String { get }
     var lastname: String { get }
     var yearOfBirth: Int { get }

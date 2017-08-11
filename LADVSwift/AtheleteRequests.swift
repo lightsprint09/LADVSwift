@@ -22,7 +22,7 @@ public struct AthleteWebService {
     }
     
     public func searchAthlets(with name: String, `in` region: Region? = nil) -> Resource<[Athlete]> {
-        var parameter: [String: Any] =  ["query": "*\(name)*"]
+        var parameter =  ["query": "*\(name)*"]
         parameter["lv"] = region?.id
 
         let request = URLRequest(path: "athletQuery", baseURL: baseURL, parameters: parameter)
@@ -31,8 +31,8 @@ public struct AthleteWebService {
     }
     
     public func athletDeatils(for athlets: [AthleteDescribing], datayear: Int) -> Resource<[AthletDetails]> {
-        let ids = athlets.map({ "\($0.ladvId)" }).joined(separator: ",")
-        let parameter: [String: Any] = ["id": ids, "all": "true", "datayear": datayear]
+        let ids = athlets.map({ "\($0.id)" }).joined(separator: ",")
+        let parameter = ["id": ids, "all": "true", "datayear": "\(datayear)"]
         let request = URLRequest(path: "athletDetail", baseURL: baseURL, parameters: parameter)
         
         return Resource(resource: JSONArrayResource(request: request))

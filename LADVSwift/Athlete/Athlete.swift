@@ -6,10 +6,8 @@
 //  Copyright © 2017 freiraum. All rights reserved.
 //
 
-import Foundation
-
 public struct Athlete {
-    public let ladvId: Int
+    public let id: Int
     public let athletnumber: Int
     public let firstname: String
     public let lastname: String
@@ -18,8 +16,4 @@ public struct Athlete {
     public let vereinNumber: Int
     public let vereinname: String
     public let landesverband: String
-}
-
-extension Athlete: Identifieable {
-    public var id: Int { return ladvId }
 }
