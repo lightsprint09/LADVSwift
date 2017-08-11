@@ -17,3 +17,5 @@ public struct Athlete {
     public let vereinname: String
     public let landesverband: String
 }
+
+extension Athlete: Identifieable {}
