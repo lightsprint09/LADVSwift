@@ -11,7 +11,7 @@ import CoreLocation
 public struct CompetitionLocation {
     public let id: Int
     public let name: String
-    public let lv: String
+    public let region: Region
     public let latitude: Double
     public let longitude: Double
 }

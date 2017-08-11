@@ -18,8 +18,6 @@ extension Athlete: JSONCodable {
         lastname = try decoder.decode("surname")
         gender = Gender(string: try decoder.decode("sex"))!
         yearOfBirth = try decoder.decode("birthyear")
-        vereinNumber = try decoder.decode("vereinnumber")
-        vereinname = try decoder.decode("vereinname")
-        landesverband = try decoder.decode("lv")
+        allClubs = [try Club(object: object)]
     }
 }

@@ -14,7 +14,8 @@ extension CompetitionLocation: JSONCodable {
         let decoder = JSONDecoder(object: object)
         id = try decoder.decode("id")
         name = try decoder.decode("name")
-        lv = try decoder.decode("lv")
+        let regionId: String = try decoder.decode("lv")
+        region = Region(id: regionId)!
         latitude = try decoder.decode("lat")
         longitude = try decoder.decode("lng")
     }

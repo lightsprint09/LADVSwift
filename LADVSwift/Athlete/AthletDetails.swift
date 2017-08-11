@@ -15,11 +15,15 @@ public struct AthletDetails {
     public let lastname: String
     public let gender: Gender
     public let yearOfBirth: Int
-    public let vereinNumber: Int
-    public let vereinname: String
-    public let landesverband: String
+    public let allClubs: [Club]
     public let competitions: [Competition]
     public let performances: [Performance]
+}
+
+extension AthletDetails {
+    public var currentClub: Club {
+        get { return allClubs.first! }
+    }
 }
 
 extension AthletDetails: AthleteDescribing { }
@@ -37,8 +41,9 @@ public extension AthletDetails {
     func merged(detail: AthletDetails) -> AthletDetails {
         let newCompetitions = self.competitions + detail.competitions
         let performances = self.performances + detail.performances
+        let clubs = self.allClubs + detail.allClubs
         
-        return AthletDetails(id: id, athletnumber: athletnumber, firstname: firstname, lastname: lastname, gender: gender, yearOfBirth: yearOfBirth, vereinNumber: vereinNumber, vereinname: vereinname, landesverband: landesverband, competitions: Array(Set(newCompetitions)).sorted(by: { $0.date > $1.date }), performances: Array(Set(performances)).sorted(by: { $0.date > $1.date }))
+        return AthletDetails(id: id, athletnumber: athletnumber, firstname: firstname, lastname: lastname, gender: gender, yearOfBirth: yearOfBirth, allClubs: clubs, competitions: Array(Set(newCompetitions)).sorted(by: { $0.date > $1.date }), performances: Array(Set(performances)).sorted(by: { $0.date > $1.date }))
     }
 }
 

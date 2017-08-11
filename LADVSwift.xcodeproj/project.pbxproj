@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		941D024F1EA37BFC00616F03 /* CompetitionSearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D024E1EA37BFC00616F03 /* CompetitionSearchFilter.swift */; };
 		941D02511EA37DB300616F03 /* CompetitionFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */; };
+		943D8A481F3DD8280032A43C /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D8A471F3DD8280032A43C /* Club.swift */; };
+		943D8A4A1F3DD8660032A43C /* Club+JSONDecodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D8A491F3DD8660032A43C /* Club+JSONDecodeable.swift */; };
 		9450ADC01F095006005AE8D3 /* MeldungParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450ADBF1F095006005AE8D3 /* MeldungParser.swift */; };
 		94602C991EF66BF60078E6AC /* meldung4.html in Resources */ = {isa = PBXBuildFile; fileRef = 94602C981EF66BF60078E6AC /* meldung4.html */; };
 		947071421EEAB8F300D66889 /* AttendingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947071411EEAB8F300D66889 /* AttendingLists.swift */; };
@@ -70,6 +72,8 @@
 /* Begin PBXFileReference section */
 		941D024E1EA37BFC00616F03 /* CompetitionSearchFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionSearchFilter.swift; sourceTree = "<group>"; };
 		941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionFilterTests.swift; sourceTree = "<group>"; };
+		943D8A471F3DD8280032A43C /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
+		943D8A491F3DD8660032A43C /* Club+JSONDecodeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Club+JSONDecodeable.swift"; sourceTree = "<group>"; };
 		9450ADBF1F095006005AE8D3 /* MeldungParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeldungParser.swift; sourceTree = "<group>"; };
 		94602C981EF66BF60078E6AC /* meldung4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = meldung4.html; sourceTree = "<group>"; };
 		9470713F1EEAB70C00D66889 /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/iOS/SwiftSoup.framework; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 				94B6BD951EA374A8008CA6D5 /* Region.swift */,
 				94B6BD961EA374A8008CA6D5 /* Identifieable.swift */,
 				947071411EEAB8F300D66889 /* AttendingLists.swift */,
+				943D8A471F3DD8280032A43C /* Club.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				94B6BDAE1EA374CC008CA6D5 /* AthletDetails+JSONDecodable.swift */,
 				94B6BDAF1EA374CC008CA6D5 /* Performance+JSONDecodeable.swift */,
 				948751B61EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift */,
+				943D8A491F3DD8660032A43C /* Club+JSONDecodeable.swift */,
 			);
 			name = "Model+JSONSerialization";
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				94B6BD8B1EA37498008CA6D5 /* CompetitionKind.swift in Sources */,
 				94C8784C1EAFD2DB00B98393 /* LADV.swift in Sources */,
 				94B6BDA11EA374A8008CA6D5 /* AthleteDescribing.swift in Sources */,
+				943D8A4A1F3DD8660032A43C /* Club+JSONDecodeable.swift in Sources */,
 				94B6BDB11EA374CC008CA6D5 /* AthletDetails+JSONDecodable.swift in Sources */,
 				94B6BDB01EA374CC008CA6D5 /* Athelt+JSONDecodeable.swift in Sources */,
 				9450ADC01F095006005AE8D3 /* MeldungParser.swift in Sources */,
@@ -457,6 +464,7 @@
 				94B6BDB21EA374CC008CA6D5 /* Performance+JSONDecodeable.swift in Sources */,
 				94B6BD8E1EA37498008CA6D5 /* Attachement.swift in Sources */,
 				94B6BDB71EA374D5008CA6D5 /* CompetitionWebservice.swift in Sources */,
+				943D8A481F3DD8280032A43C /* Club.swift in Sources */,
 				94B6BD9C1EA374A8008CA6D5 /* Disciplin.swift in Sources */,
 				941D024F1EA37BFC00616F03 /* CompetitionSearchFilter.swift in Sources */,
 				94B6BDA81EA374C2008CA6D5 /* Competition+JSONDecodeable.swift in Sources */,

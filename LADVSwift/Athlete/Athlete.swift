@@ -13,9 +13,13 @@ public struct Athlete {
     public let lastname: String
     public let gender: Gender
     public let yearOfBirth: Int
-    public let vereinNumber: Int
-    public let vereinname: String
-    public let landesverband: String
+    public let allClubs: [Club]
+}
+
+extension Athlete {
+    public var currentClub: Club {
+        get { return allClubs.first! }
+    }
 }
 
 extension Athlete: Identifieable {}
