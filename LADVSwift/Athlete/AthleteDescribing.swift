@@ -16,7 +16,11 @@ public protocol AthleteDescribing {
 }
 
 public extension AthleteDescribing{
-    public var fullName: String {
+    var fullName: String {
         return "\(firstname) \(lastname)"
+    }
+    
+    var ladvProfileURL: URL {
+        return URL(string: "https://ladv.de/leistungsdatenbank/athletenprofil/\(id)")!
     }
 }

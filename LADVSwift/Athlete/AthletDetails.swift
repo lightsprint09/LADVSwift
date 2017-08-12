@@ -26,7 +26,7 @@ extension AthletDetails {
     }
 }
 
-extension AthletDetails: AthleteDescribing { }
+public extension AthletDetails: AthleteDescribing { }
 
 public extension AthletDetails{
     func sortedCompetitions() -> ([[Competition]], description: [String]) {
