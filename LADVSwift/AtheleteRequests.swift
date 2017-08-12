@@ -30,15 +30,24 @@ public struct AthleteWebService {
         return Resource(resource: JSONArrayResource(request: request))
     }
     
-    public func athletDeatils(for athlets: [AthleteDescribing], datayear: Int) -> Resource<[AthletDetails]> {
-        let ids = athlets.map({ "\($0.id)" }).joined(separator: ",")
-        let parameter = ["id": ids, "all": "true", "datayear": "\(datayear)"]
+    public func athletDeatils(for athlets: [AthleteDescribing], year: Int) -> Resource<[AthletDetails]> {
+        let ids = athlets.map { $0.id}
+        return athletDeatils(for: ids, year: year)
+    }
+    
+    public func athletDeatils(for athlet: AthleteDescribing, year: Int) -> Resource<AthletDetails?> {
+        return athletDeatils(for: [athlet], year: year).map(transform: { $0.first })
+    }
+    
+    public func athletDeatils(for athletIds: [Int], year: Int) -> Resource<[AthletDetails]> {
+        let ids = athletIds.map({ "\($0)" }).joined(separator: ",")
+        let parameter = ["id": ids, "all": "true", "datayear": "\(year)"]
         let request = URLRequest(path: "athletDetail", baseURL: baseURL, parameters: parameter)
         
         return Resource(resource: JSONArrayResource(request: request))
     }
     
-    public func athletDeatils(for athlet: AthleteDescribing, datayear: Int) -> Resource<AthletDetails?> {
-        return athletDeatils(for: [athlet], datayear: datayear).map(transform: { $0.first })
+    public func athletDeatils(for athletId: Int, year: Int) -> Resource<AthletDetails?> {
+        return athletDeatils(for: [athletId], year: year).map(transform: { $0.first })
     }
 }
