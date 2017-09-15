@@ -314,8 +314,6 @@
 				94B6BD5A1EA37278008CA6D5 /* Frameworks */,
 				94B6BD5B1EA37278008CA6D5 /* Headers */,
 				94B6BD5C1EA37278008CA6D5 /* Resources */,
-				94B6BD781EA372C9008CA6D5 /* 📦 Carthage Copy */,
-				94754CB51EA378B60098B73F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -405,39 +403,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		94754CB51EA378B60098B73F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then\nrm -fr Frameworks\nfi";
-		};
-		94B6BD781EA372C9008CA6D5 /* 📦 Carthage Copy */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/DBNetworkStack.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/JSONCodable.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Fuzi.framework",
-			);
-			name = "📦 Carthage Copy";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		94B6BD591EA37278008CA6D5 /* Sources */ = {
