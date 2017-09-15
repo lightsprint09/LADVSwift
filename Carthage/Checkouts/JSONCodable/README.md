@@ -13,14 +13,8 @@
         <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"
              alt="Carthage">
     </a>
-    <a href="https://travis-ci.org/matthewcheok/JSONCodable">
-        <img src="https://travis-ci.org/matthewcheok/JSONCodable.svg?branch=master"
-             alt="Travis CI">
-    </a>
     <img src="https://img.shields.io/badge/license-MIT-000000.svg"
          alt="License">
-        
-         
 </p>
 
 #JSONCodable
@@ -30,12 +24,12 @@ Hassle-free JSON encoding and decoding in Swift
 
 - Simply add the following to your [`Cartfile`](https://github.com/Carthage/Carthage) and run `carthage update`:
 ```
-github "matthewcheok/JSONCodable" ~> 3.0.1
+github "matthewcheok/JSONCodable" ~> 3.0
 ```
 
 - or add the following to your [`Podfile`](http://cocoapods.org/) and run `pod install`:
 ```
-pod 'JSONCodable', '~> 3.0.1'
+pod 'JSONCodable', '~> 3.0'
 ```
 
 - or clone as a git submodule,
@@ -160,7 +154,7 @@ Simply add conformance to `JSONEncodable` (or to `JSONCodable`):
 
 ```swift
 extension User: JSONEncodable {
-    func toJSON() throws -> Any {
+    func toJSON() throws -> AnyObject {
         return try JSONEncoder.create({ (encoder) -> Void in
             try encoder.encode(id, key: "id")
             try encoder.encode(name, key: "full_name")

@@ -10,7 +10,7 @@ import XCTest
 
 
 class RegularTests: XCTestCase {
-
+    
     let nestedCodableArray: [String: Any] = [
         "areas" : [[10.0,10.5,12.5]],
         "places": [["Tokyo","New York", "El Cerrito"]],
@@ -30,18 +30,17 @@ class RegularTests: XCTestCase {
               "uri": "http://www.example.com/image2.png"
             ]
             ]]]
-
+    
     let encodedNestedArray: [String : Any] = [
         "id": 99,
         "full_name": "Jen Jackson",
-        "friends" : [],
         "properties":[
             ["likes":5],
             ["likes":15],
             ["likes":25]
         ]
     ]
-
+    
     let encodedValue: [String: Any] = [
         "id": 24,
         "full_name": "John Appleseed",
@@ -51,11 +50,10 @@ class RegularTests: XCTestCase {
             "address": "1 Infinite Loop, Cupertino, CA"
         ],
         "friends": [
-            ["id": 27, "full_name": "Bob Jefferson", "friends" : [], ],
-            ["id": 29, "full_name": "Jen Jackson", "friends" : [],
-             ]
+            ["id": 27, "full_name": "Bob Jefferson"],
+            ["id": 29, "full_name": "Jen Jackson"]
         ],
-        "friendsLookup": ["Bob Jefferson": ["id": 27,  "friends" : [], "full_name": "Bob Jefferson"]]
+        "friendsLookup": ["Bob Jefferson": ["id": 27, "full_name": "Bob Jefferson"]]
     ]
     let decodedValue = User(
         id: 24,
@@ -89,54 +87,47 @@ class RegularTests: XCTestCase {
         let places = nested.places ?? [[]]
         let areas = nested.areas
         let business = nested.business
-        let assets = nested.assets ?? [[]]
-
+        let assets = nested.assets ?? [[]]        
+        
         XCTAssert(places as NSObject == [["Tokyo","New York", "El Cerrito"]] as NSObject, "\(nestedCodableArray))")
         XCTAssert(areas as NSObject == [[10.0,10.5,12.5]] as NSObject, "\(nestedCodableArray))")
-
+        
         XCTAssert(business.map{ $0.map{ $0.name } } as NSObject == [[try! Company(object:["name": "Apple",
-                                                                                          "address": "1 Infinite Loop, Cupertino, CA"]),
-                                                                     try! Company(object:[ "name": "Propeller",
-                                                                                           "address": "1212 broadway, Oakland, CA"])].map{ $0.name }] as NSObject,
+                                                                              "address": "1 Infinite Loop, Cupertino, CA"]),
+                                                         try! Company(object:[ "name": "Propeller",
+                                                                               "address": "1212 broadway, Oakland, CA"])].map{ $0.name }] as NSObject,
                   "\(nestedCodableArray))")
-
+        
         XCTAssert(assets.map{ $0.map{ $0.name } } as NSObject == [[try! ImageAsset(object:[ "name": "image-name",
-                                                                                            "uri": "http://www.example.com/image.png"]),
-                                                                   try! ImageAsset(object: ["name": "image2-name",
-                                                                                            "uri": "http://www.example.com/image2.png"])].map{ $0.name }] as NSObject,
+                                                                                "uri": "http://www.example.com/image.png"]),
+                                                       try! ImageAsset(object: ["name": "image2-name",
+                                                                                "uri": "http://www.example.com/image2.png"])].map{ $0.name }] as NSObject,
                   "\(nestedCodableArray))")
     }
-
+    
     func testDecodingNestedArray() {
-        do {
-            let user = try User(object: encodedNestedArray)
-            XCTAssert(user.likes != nil, "\(encodedNestedArray))")
-        } catch {
-            print("error returned as: \(error)")
+        guard let user = try? User(object: encodedNestedArray) else {
             XCTFail()
+            return
         }
+        XCTAssert(user.likes != nil, "\(encodedNestedArray))")
     }
-
+    
     func testDecodingRegular() {
-        do {
-            let user = try User(object: encodedValue)
-            XCTAssertEqual(user, decodedValue)
-        } catch {
-            print("error returned as: \(error)")
+        guard let user = try? User(object: encodedValue) else {
             XCTFail()
+            return
         }
+        XCTAssertEqual(user, decodedValue)
     }
-
+    
     func testEncodingRegular() {
-        do {
-            guard let json = try decodedValue.toJSON() as? NSDictionary else {
-                XCTFail()
-                return
-            }
-            XCTAssert(json == (encodedValue as NSDictionary))
-        } catch {
-            print("\(error.localizedDescription)")
+        guard let json = (try? decodedValue.toJSON()) as? NSDictionary else {
             XCTFail()
+            return
         }
+        
+        XCTAssert(json == (encodedValue as NSDictionary))
+                
     }
 }

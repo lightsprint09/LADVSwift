@@ -27,7 +27,7 @@ public struct CompetitionWebService {
         
         let request = URLRequest(path: "ausList", baseURL: baseURL, parameters: parameters)
         
-        return JSONArrayResource(request: request).wrapped()
+        return Resource(resource: JSONArrayResource(request: request))
     }
     
     public func competitionDetails(for competitionIds: [Int]) -> Resource<[CompetitionDetails]> {
@@ -35,7 +35,7 @@ public struct CompetitionWebService {
         let parameters = ["id": "\(ids)", "all": "\(true)", "wettbewerbe": "\(true)"]
         let request = URLRequest(path: "ausDetail", baseURL: baseURL, parameters: parameters)
         
-        return JSONArrayResource(request: request).wrapped()
+        return Resource(resource: JSONArrayResource(request: request))
     }
     
     public func competitionDetail(for competitionId: Int) -> Resource<CompetitionDetails> {

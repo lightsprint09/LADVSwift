@@ -69,20 +69,14 @@ public extension JSONDecodable {
 }
 
 public extension Array where Element: JSONDecodable {
-    init(JSONArray: [Any], filtered: Bool = false) throws {
+    init(JSONArray: [Any]) throws {
         self.init(try JSONArray.flatMap {
             guard let json = $0 as? [String : Any] else {
                 throw JSONDecodableError.dictionaryTypeExpectedError(key: "n/a", elementType: type(of: $0))
             }
-            if filtered {
-                return try? Element(object: json)
-            } else {
-                return try Element(object: json)
-            }
-        })
+            return try Element(object: json)
+            })
     }
-
-
 }
 
 // JSONDecoder - provides utility methods for decoding
@@ -142,12 +136,12 @@ public class JSONDecoder {
         }
         return compatible
     }
-
+    
     // JSONCompatible?
     public func decode<Compatible: JSONCompatible>(_ key: String) throws -> Compatible? {
         return (get(key) ?? object[key] as Any) as? Compatible
     }
-
+    
     // JSONDecodable
     public func decode<Decodable: JSONDecodable>(_ key: String) throws -> Decodable {
         guard let value = get(key) else {
@@ -199,9 +193,9 @@ public class JSONDecoder {
     }
     
     // [JSONCompatible]
-    public func decode<Element: JSONCompatible>(_ key: String, filter: Bool = false) throws -> [Element] {
+    public func decode<Element: JSONCompatible>(_ key: String) throws -> [Element] {
         guard let value = get(key) else {
-            throw JSONDecodableError.missingTypeError(key: key)
+            return []
         }
         guard let array = value as? [Element] else {
             throw JSONDecodableError.incompatibleTypeError(key: key, elementType: type(of: value), expectedType: [Element].self)
@@ -221,43 +215,31 @@ public class JSONDecoder {
     }
     
     // [JSONDecodable]
-    public func decode<Element: JSONDecodable>(_ key: String, filter: Bool = false) throws -> [Element] {
+    public func decode<Element: JSONDecodable>(_ key: String) throws -> [Element] {
         guard let value = get(key) else {
-            throw JSONDecodableError.missingTypeError(key: key)
+            return []
         }
         guard let array = value as? [JSONObject] else {
             throw JSONDecodableError.arrayTypeExpectedError(key: key, elementType: type(of: value))
         }
-        return try array.flatMap {
-            if filter {
-                return try? Element(object: $0)
-            } else {
-                return try Element(object: $0)
-            }
-        }
+        return try array.flatMap { try Element(object: $0)}
     }
     
     // [JSONDecodable]?
-    public func decode<Element: JSONDecodable>(_ key: String, filter: Bool = false) throws -> [Element]? {
+    public func decode<Element: JSONDecodable>(_ key: String) throws -> [Element]? {
         guard let value = get(key) else {
             return nil
         }
         guard let array = value as? [JSONObject] else {
             throw JSONDecodableError.arrayTypeExpectedError(key: key, elementType: type(of: value))
         }
-        return try array.flatMap {
-            if filter {
-                return try? Element(object: $0)
-            } else {
-                return try Element(object: $0)
-            }
-        }
+        return try array.flatMap { try Element(object: $0)}
     }
-
+    
     // [[JSONDecodable]]
-    public func decode<Element: JSONDecodable>(_ key: String, filter: Bool = false) throws -> [[Element]] {
+    public func decode<Element: JSONDecodable>(_ key: String) throws -> [[Element]] {
         guard let value = get(key) else {
-            throw JSONDecodableError.missingTypeError(key: key)
+            return []
         }
         guard let array = value as? [[JSONObject]] else {
             throw JSONDecodableError.arrayTypeExpectedError(key: key, elementType: type(of: value))
@@ -265,13 +247,8 @@ public class JSONDecoder {
         var res:[[Element]] = []
         
         for x in array {
-            if filter {
-                let nested = x.flatMap { try? Element(object: $0)}
-                res.append(nested)
-            } else {
-                let nested = try x.flatMap { try Element(object: $0)}
-                res.append(nested)
-            }
+            let nested = try x.flatMap { try Element(object: $0)}
+            res.append(nested)
         }
         return res
     }
@@ -279,7 +256,7 @@ public class JSONDecoder {
     // [[JSONCompatible]]
     public func decode<Element: JSONCompatible>(_ key: String) throws -> [[Element]] {
         guard let value = get(key) else {
-            throw JSONDecodableError.missingTypeError(key: key)
+            return []
         }
         guard let array = value as? [[Element]] else {
             throw JSONDecodableError.incompatibleTypeError(key: key, elementType: type(of: value), expectedType: [Element].self)
@@ -295,7 +272,7 @@ public class JSONDecoder {
     // [Enum]
     public func decode<Enum: RawRepresentable>(_ key: String) throws -> [Enum] {
         guard let value = get(key) else {
-            throw JSONDecodableError.missingTypeError(key: key)
+            return []
         }
         guard let array = value as? [Enum.RawValue] else {
             throw JSONDecodableError.arrayTypeExpectedError(key: key, elementType: type(of: value))
