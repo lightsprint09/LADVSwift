@@ -24,7 +24,7 @@ public struct AthleteWebService {
     public func searchAthlets(with name: String, `in` region: Region? = nil) -> Resource<[Athlete]> {
 
 
-        let request = URLRequest(path: "athletQuery?query:*\(name)*", baseURL: baseURL)
+        let request = URLRequest(path: "athletQuery?query=*\(name)*", baseURL: baseURL)
         
         return Resource(resource: JSONArrayResource(request: request))
     }
