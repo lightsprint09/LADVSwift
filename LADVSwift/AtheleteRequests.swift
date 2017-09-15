@@ -22,7 +22,8 @@ public struct AthleteWebService {
     }
     
     public func searchAthlets(with name: String, `in` region: Region? = nil) -> Resource<[Athlete]> {
-        var parameter =  ["query": "*\(name)*"]
+        let name = name.replacingOccurrences(of: " ", with: "%20S")
+        var parameter = ["query": "*\(name)*"]
         parameter["lv"] = region?.id
 
         let request = URLRequest(path: "athletQuery", baseURL: baseURL, parameters: parameter)
@@ -31,7 +32,7 @@ public struct AthleteWebService {
     }
     
     public func athletDeatils(for athlets: [AthleteDescribing], year: Int) -> Resource<[AthletDetails]> {
-        let ids = athlets.map { $0.id}
+        let ids = athlets.map { $0.id }
         return athletDeatils(for: ids, year: year)
     }
     
