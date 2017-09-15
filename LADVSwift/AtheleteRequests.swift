@@ -22,8 +22,7 @@ public struct AthleteWebService {
     }
     
     public func searchAthlets(with name: String, `in` region: Region? = nil) -> Resource<[Athlete]> {
-
-
+        let name = name.replacingOccurrences(of: " ", with: "%20S")
         let request = URLRequest(path: "athletQuery?query=*\(name)*", baseURL: baseURL)
         
         return Resource(resource: JSONArrayResource(request: request))
