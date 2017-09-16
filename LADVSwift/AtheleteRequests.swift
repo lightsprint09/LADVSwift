@@ -25,7 +25,8 @@ public struct AthleteWebService {
         guard let name = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             fatalError()
         }
-        let request = URLRequest(path: "athletQuery?query=*\(name)*", baseURL: baseURL)
+        let url = URL(string: "athletQuery?query=*\(name)*", relativeTo: baseURL)
+        let request = URLRequest(url: url!)
         
         return Resource(resource: JSONArrayResource(request: request))
     }
