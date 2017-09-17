@@ -18,15 +18,14 @@ public struct AthleteWebService {
     let baseURL: URL
     
     public init(APIKey: String) {
-       self.baseURL = URL(string: "http://ladv.de/api/\(APIKey)/")!
+       self.baseURL = URL(string: "https://ladv.de/api/\(APIKey)/")!
     }
     
     public func searchAthlets(with name: String, `in` region: Region? = nil) -> Resource<[Athlete]> {
-        guard let name = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-            fatalError()
-        }
-        let url = URL(string: "athletQuery?query=*\(name)*", relativeTo: baseURL)
-        let request = URLRequest(url: url!)
+        var parameter =  ["query": "*\(name)*"]
+        parameter["lv"] = region?.id
+
+        let request = URLRequest(path: "athletQuery", baseURL: baseURL, parameters: parameter)
         
         return Resource(resource: JSONArrayResource(request: request))
     }
