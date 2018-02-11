@@ -8,10 +8,6 @@
 
 import Foundation
 import DBNetworkStack
-import JSONCodable
-
-extension Athlete: JSONMappable {}
-extension AthletDetails: JSONMappable {}
 
 public struct AthleteWebService {
     
@@ -27,7 +23,12 @@ public struct AthleteWebService {
 
         let request = URLRequest(path: "athletQuery", baseURL: baseURL, parameters: parameter)
         
-        return Resource(resource: JSONArrayResource(request: request))
+        return Resource(request: request, parse: { data in
+            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            let array = json as! [Any]
+            
+            return try Array(JSONArray: array)
+        })
     }
     
     public func athletDeatils(for athlets: [AthleteDescribing], year: Int) -> Resource<[AthletDetails]> {
@@ -44,7 +45,11 @@ public struct AthleteWebService {
         let parameter = ["id": ids, "all": "true", "datayear": "\(year)"]
         let request = URLRequest(path: "athletDetail", baseURL: baseURL, parameters: parameter)
         
-        return Resource(resource: JSONArrayResource(request: request))
+        return Resource(request: request, parse: { data in
+            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [Any]
+            
+            return try Array(JSONArray: json)
+        })
     }
     
     public func athletDeatils(for athletId: Int, year: Int) -> Resource<AthletDetails?> {

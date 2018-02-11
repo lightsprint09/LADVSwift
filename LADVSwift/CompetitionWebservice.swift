@@ -9,10 +9,6 @@
 import Foundation
 import DBNetworkStack
 
-extension Competition: JSONMappable {}
-extension CompetitionDetails: JSONMappable {}
-extension CompetitionResultDetails: JSONMappable {}
-
 public struct CompetitionWebService {
     let baseURL: URL
     
@@ -27,7 +23,11 @@ public struct CompetitionWebService {
         
         let request = URLRequest(path: "ausList", baseURL: baseURL, parameters: parameters)
         
-        return Resource(resource: JSONArrayResource(request: request))
+        return Resource(request: request, parse: { data in
+            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [Any]
+            
+            return try Array(JSONArray: json)
+        })
     }
     
     public func competitionDetails(for competitionIds: [Int]) -> Resource<[CompetitionDetails]> {
@@ -35,7 +35,11 @@ public struct CompetitionWebService {
         let parameters = ["id": "\(ids)", "all": "\(true)", "wettbewerbe": "\(true)"]
         let request = URLRequest(path: "ausDetail", baseURL: baseURL, parameters: parameters)
         
-        return Resource(resource: JSONArrayResource(request: request))
+        return Resource(request: request, parse: { data in
+            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [Any]
+            
+            return try Array(JSONArray: json)
+        })
     }
     
     public func competitionDetail(for competitionId: Int) -> Resource<CompetitionDetails> {

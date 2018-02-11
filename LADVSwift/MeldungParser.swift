@@ -50,7 +50,6 @@ struct MeldungParser {
                 endRange = node.stringValue.range(of: ")", options: [], range: range2, locale: nil)
             }
             
-            
             return stringValue.substring(with: Range(uncheckedBounds: (range.upperBound, endRange.lowerBound)))
         }
         return nil
@@ -63,7 +62,7 @@ struct MeldungParser {
         let node = nodes[index + 2]
         var result = [Meldung]()
         if let nodeClass = node.attr("class"), nodeClass == "teinzel" {
-            if node.children[0].children[0].children[4].stringValue.characters.count < 2 {
+            if node.children[0].children[0].children[4].stringValue.count < 2 {
                 return extractStaffel(node: node)
             }
             for meldungNode in node.children[0].children {
@@ -121,7 +120,8 @@ struct MeldungParser {
         let newHref = href.replacingOccurrences(of: "/leistungsdatenbank/athletenprofil/", with: "")
         let index = newHref.range(of: "/")!
         
-        return newHref.substring(to: index.lowerBound)
+        let range = PartialRangeUpTo(index.lowerBound)
+        return String(newHref[range])
     }
     
     public func parse(html: Data) throws -> [MeldungPerAge] {

@@ -18,7 +18,7 @@ public struct PerformancesOfDisciplin {
 
 public extension PerformancesOfDisciplin {
     var perYearPeromances: ([[Performance]], [String]) {
-        let sortedByYear = performances.split(sectionSpecificElement:  { $0.dateText.components(separatedBy: ".").last! }).sorted(by: { $0.0.first!.date > $0.1.first!.date })
+        let sortedByYear = performances.split(sectionSpecificElement:  { $0.dateText.components(separatedBy: ".").last! }).sorted(by: { $0.first!.date > $1.first!.date })
         let years = sortedByYear.map({  $0.first!.dateText.components(separatedBy: ".").last! })
         
         return (sortedByYear, years)

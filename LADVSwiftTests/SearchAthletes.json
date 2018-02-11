@@ -1,61 +1,61 @@
 [{
-	forename: "Lukas"
-	surname: "Schmidtchen"
-	birthyear: 2004
-	sex: "M"
-	vereinnumber: 7712
-	lv: "NI"
-	vereinname: "SV DJK Geeste"
-	athletnumber: 610333
-	id: 179976
+	"forename": "Lukas"
+	"surname": "Schm"id"tchen"
+	"birthyear": 2004
+	"sex": "M"
+	"vereinnumber": 7712
+	"lv": "NI"
+	"vereinname": "SV DJK Geeste"
+	"athletnumber": 610333
+	"id": 179976
 } {
-	forename: "Lukas"
-	surname: "Schmidt"
-	birthyear: 1993
-	sex: "M"
-	vereinnumber: 54
-	lv: "BA"
-	vereinname: "LAZ Mosbach/Elztal"
-	athletnumber: 14952
-	id: 71847
+	"forename": "Lukas"
+	"surname": "Schm"id"t"
+	"birthyear": 1993
+	"sex": "M"
+	"vereinnumber": 54
+	"lv": "BA"
+	"vereinname": "LAZ Mosbach/Elztal"
+	"athletnumber": 14952
+	"id": 71847
 } {
-	forename: "Lukas"
-	surname: "Schmidt"
-	birthyear: 1998
-	sex: "M"
-	vereinnumber: 2590
-	lv: "SH"
-	vereinname: "Leichtathl. Klub Weiche"
-	athletnumber: 203180
-	id: 304874
+	"forename": "Lukas"
+	"surname": "Schm"id"t"
+	"birthyear": 1998
+	"sex": "M"
+	"vereinnumber": 2590
+	"lv": "SH"
+	"vereinname": "Leichtathl. Klub Weiche"
+	"athletnumber": 203180
+	"id": 304874
 } {
-	forename: "Lukas"
-	surname: "Schmidtke"
-	birthyear: 2005
-	sex: "M"
-	vereinnumber: 1212
-	lv: "SH"
-	vereinname: "Sport-Club Itzehoe"
-	athletnumber: 603750
-	id: 309018
+	"forename": "Lukas"
+	"surname": "Schm"id"tke"
+	"birthyear": 2005
+	"sex": "M"
+	"vereinnumber": 1212
+	"lv": "SH"
+	"vereinname": "Sport-Club Itzehoe"
+	"athletnumber": 603750
+	"id": 309018
 } {
-	forename: "Lukas"
-	surname: "Schmidtke"
-	birthyear: 2001
-	sex: "M"
-	vereinnumber: 2140
-	lv: "WÜ"
-	vereinname: "SKV Eglosheim"
-	athletnumber: 47401
-	id: 288924
+	"forename": "Lukas"
+	"surname": "Schm"id"tke"
+	"birthyear": 2001
+	"sex": "M"
+	"vereinnumber": 2140
+	"lv": "WÜ"
+	"vereinname": "SKV Eglosheim"
+	"athletnumber": 47401
+	"id": 288924
 } {
-	forename: "Lukas"
-	surname: "Schmidt"
-	birthyear: 2003
-	sex: "M"
-	vereinnumber: 1331
-	lv: "WÜ"
-	vereinname: "TSV 1848 Gaildorf"
-	athletnumber: 611696
-	id: 140941
+	"forename": "Lukas"
+	"surname": "Schm"id"t"
+	"birthyear": 2003
+	"sex": "M"
+	"vereinnumber": 1331
+	"lv": "WÜ"
+	"vereinname": "TSV 1848 Gaildorf"
+	"athletnumber": 611696
+	"id": 140941
 }]
