@@ -11,10 +11,10 @@ import DBNetworkStack
 
 public struct AthleteWebService {
     
-    let baseURL: URL
+    private let baseURL: URL
     
-    public init(APIKey: String) {
-       self.baseURL = URL(string: "https://ladv.de/api/\(APIKey)/")!
+    public init(baseURL: URL) {
+       self.baseURL = baseURL
     }
     
     public func searchAthlets(with name: String, `in` region: Region? = nil) -> Resource<[Athlete]> {

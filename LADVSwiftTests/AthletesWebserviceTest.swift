@@ -6,11 +6,28 @@
 //  Copyright © 2017 freiraum. All rights reserved.
 //
 
+import Foundation
 import XCTest
+import DBNetworkStack
 @testable import LADVSwift
 
+extension URL {
+    static let mocked = URL(string: "https:ladv.de")!
+}
+
+extension Resource {
+    func contains(queryItem: URLQueryItem) -> Bool {
+        guard let url = request.asURLRequest().url, let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+            return false
+        }
+        
+        return urlComponents.queryItems?.contains(queryItem) ?? false
+    }
+}
+
+
 class AthletesWebserviceTest: XCTestCase {
-    let webservice = AthleteWebService(APIKey: "ABC")
+    let webservice = AthleteWebService(baseURL: .mocked)
     
     func testSearchAthletesWithCorrectParameters() {
         //Given
@@ -21,8 +38,8 @@ class AthletesWebserviceTest: XCTestCase {
         let resource = webservice.searchAthlets(with: searchString, in: region)
         
         //Then
-//        XCTAssertEqual(resource.request.parameter?["query"] as? String, "*Test*")
-//        XCTAssertEqual(resource.request.parameter?["lv"] as? String, "Test")
+        XCTAssert(resource.contains(queryItem: URLQueryItem(name: "query", value: "*Test*")))
+        XCTAssert(resource.contains(queryItem: URLQueryItem(name: "lv", value: "Test")))
     }
     
     func testParseResponse() {

@@ -10,10 +10,11 @@ import Foundation
 import DBNetworkStack
 
 public struct CompetitionWebService {
-    let baseURL: URL
     
-    public init(APIKey: String) {
-        self.baseURL = URL(string: "http://ladv.de/api/\(APIKey)/")!
+    private let baseURL: URL
+    
+    public init(baseURL: URL) {
+        self.baseURL = baseURL
     }
     
     public func searchCompetitions(filter: CompetitionFilter) -> Resource<Array<Competition>> {
@@ -57,11 +58,11 @@ public struct CompetitionWebService {
 extension CompetitionWebService {
     
     public func competitionDetails(for competitions: [CompetitionDescribing]) -> Resource<[CompetitionDetails]> {
-        return competitionDetails(for: competitions.map({ $0.id }))
+        return competitionDetails(for: competitions.map { $0.id } )
     }
     
     public func competitionDetail(for competition: CompetitionDescribing) -> Resource<CompetitionDetails> {
-        return competitionDetails(for: [competition.id]).map(transform: { $0.first! })
+        return competitionDetails(for: [competition.id]).map { $0.first! }
     }
 }
 
