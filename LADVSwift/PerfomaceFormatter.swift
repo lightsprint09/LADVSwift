@@ -34,19 +34,19 @@ public final class PerfomaceFormatter {
         }
     }
     
-    func validate(string: String, ofUnit unit: Disciplin.Unit) -> Bool {
-        switch unit {
-        case .metrisch:
-            let kommas = string.trimmingCharacters(in: .decimalDigits)
-            return kommas.count == 0 || ( kommas.count == 0 && ",".contains(kommas))
-        case .punkte:
-            let kommas = string.trimmingCharacters(in: .decimalDigits)
-            return kommas.count == 0
-        case .zeit:
-        //04:23:05,05
-            return false
-        default:
-            <#code#>
-        }
-    }
+//    func validate(string: String, ofUnit unit: Disciplin.Unit) -> Bool {
+//        switch unit {
+//        case .metrisch:
+//            let kommas = string.trimmingCharacters(in: .decimalDigits)
+//            return kommas.count == 0 || ( kommas.count == 0 && ",".contains(kommas))
+//        case .punkte:
+//            let kommas = string.trimmingCharacters(in: .decimalDigits)
+//            return kommas.count == 0
+//        case .zeit:
+//        //04:23:05,05
+//            return false
+//        default:
+//            <#code#>
+//        }
+//    }
 }
