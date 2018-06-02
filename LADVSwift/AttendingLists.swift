@@ -15,7 +15,7 @@ struct MinimalAthlete: AthleteDescribing {
     let yearOfBirth: Int
 }
 
-public struct Attendee {
+public struct Attendee: Hashable {
     public let id: String?
     public let name: String
     public let number: Int?
@@ -32,7 +32,7 @@ extension Attendee {
     }
 }
 
-public struct Meldung {
+public struct Meldung: Hashable {
     public let performance: String?
     public let rank: Int?
     public let region: Region
@@ -40,7 +40,7 @@ public struct Meldung {
     public let attendees: [Attendee]
 }
 
-public struct AttendingDisciplins {
+public struct AttendingDisciplins: Hashable {
     public let requiredPerformance: String?
     public let disciplin: Disciplin
     public let attendees: [Meldung]
