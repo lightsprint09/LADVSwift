@@ -8,13 +8,7 @@
 
 import Foundation
 
-extension Age: Identifieable {
-    public var id: Int {
-        return dlvID.hashValue
-    }
-}
-
-public struct Age {
+public struct Age: Hashable {
     public let name: String
     public let shortName: String
     public let ladvID: String

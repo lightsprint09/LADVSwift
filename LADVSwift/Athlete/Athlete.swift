@@ -6,7 +6,7 @@
 //  Copyright © 2017 freiraum. All rights reserved.
 //
 
-public struct Athlete {
+public struct Athlete: Hashable {
     public let id: Int
     public let athletnumber: Int
     public let firstname: String
@@ -21,5 +21,3 @@ extension Athlete {
         get { return allClubs.first! }
     }
 }
-
-extension Athlete: Identifieable {}

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum Gender: String {
+public enum Gender: String, Hashable {
     case male = "M"
     case female = "F"
     

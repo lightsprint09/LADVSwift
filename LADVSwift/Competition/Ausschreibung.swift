@@ -17,6 +17,7 @@ public protocol CompetitionDescribing {
 }
 
 extension CompetitionDescribing {
+    /// TODO: Use url proberty
     public var ladvURL: URL {
         return URL(string: "https://ladv.de/ausschreibung/detail/\(id)")!
     }
@@ -26,25 +27,36 @@ extension CompetitionDescribing {
     }
 }
 
-public struct Competition {
+public struct Ausschreibung: Hashable, Codable {
     public let id: Int
     public let name: String
     public let date: Date
     public let endDate: Date?
     public let city: String?
     public let locationName: String
-    
+
     public let description: String
-    
+
     //Meldung
     public let meldeAdress: String
     public let meldeEMailAdress: String
     public let meldeSchlussDate: Date
+ 
+    public enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case date = "datum"
+        case endDate = "bisDatum"
+        case city = "ort"
+        case description = "beschreibung"
+        case locationName = "sportstaette"
+        case meldeAdress = "meldAdresse"
+        case meldeEMailAdress = "meldEmail"
+        case meldeSchlussDate = "meldDatum"
+    }
+    
     
 }
 
-extension Competition: CompetitionDescribing {}
-
-extension Competition: Identifieable { }
-
+extension Ausschreibung: CompetitionDescribing {}
 

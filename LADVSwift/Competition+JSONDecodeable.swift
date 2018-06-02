@@ -9,7 +9,7 @@
 import Foundation
 import JSONCodable
 
-extension Competition: JSONCodable {
+extension Ausschreibung: JSONCodable {
     public init(object: JSONObject) throws {
         let decoder = JSONDecoder(object: object)
         id = try decoder.decode("id")

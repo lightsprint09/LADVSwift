@@ -8,15 +8,9 @@
 
 import Foundation
 
-public struct ResultAttachement {
+public struct ResultAttachement: Hashable {
     public let name: String
     public let url: URL
     public let fileType: String
     public let obsolete: Bool
-}
-
-extension ResultAttachement: Identifieable {
-    public var id: Int {
-        return url.absoluteString.hashValue
-    }
 }

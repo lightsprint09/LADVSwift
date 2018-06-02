@@ -102,11 +102,9 @@ $ pod install
 
 ### Manually
 1. Add all `*.swift` files in `Fuzi` directory into your project.
-2. Copy `libxml2` folder into somewhere in your project's directory, say `/path/to/somewhere`.
-3. In your Xcode project `Build Settings`:
-   1. Find `Swift Compiler - Search Paths`, add `/path/to/somewhere/libxml2` to `Import Paths`.
-   2. Find `Search Paths`, add `$(SDKROOT)/usr/include/libxml2` to `Header Search Paths`.
-   3. Find `Linking`, add `-lxml2` to `Other Linker Flags`.
+2. In your Xcode project `Build Settings`:
+   1. Find `Search Paths`, add `$(SDKROOT)/usr/include/libxml2` to `Header Search Paths`.
+   2. Find `Linking`, add `-lxml2` to `Other Linker Flags`.
 
 ### Using [Carthage](https://github.com/Carthage/Carthage)
 Create a `Cartfile` or `Cartfile.private` in the root directory of your project, and add the following line:
@@ -125,15 +123,15 @@ Then do the followings in Xcode:
 2. In `Build Settings`, find `Search Paths`, add `$(SDKROOT)/usr/include/libxml2` to `Header Search Paths`.
 
 
-##Usage
-###XML
+## Usage
+### XML
 ```swift
 import Fuzi
 
 let xml = "..."
 do {
   // if encoding is omitted, it defaults to NSUTF8StringEncoding
-  let doc = try XMLDocument(string: html, encoding: NSUTF8StringEncoding)
+  let document = try XMLDocument(string: html, encoding: String.Encoding.utf8)
   if let root = document.root {
     print(root.tag)
     
@@ -158,7 +156,7 @@ do {
   }
 }
 ```
-###HTML
+### HTML
 `HTMLDocument` is a subclass of `XMLDocument`.
 
 ```swift
@@ -167,7 +165,7 @@ import Fuzi
 let html = "<html>...</html>"
 do {
   // if encoding is omitted, it defaults to NSUTF8StringEncoding
-  let doc = try HTMLDocument(string: html, encoding: NSUTF8StringEncoding)
+  let doc = try HTMLDocument(string: html, encoding: String.Encoding.utf8)
   
   // CSS queries
   if let elementById = doc.firstChild(css: "#id") {
@@ -201,7 +199,7 @@ do {
 }
 ```
 
-###I don't care about error handling
+### I don't care about error handling
 
 ```swift
 import Fuzi
@@ -220,7 +218,7 @@ let doc2 = try! HTMLDocument(string: html)
 //...
 ```
 
-###I want to access Text Nodes
+### I want to access Text Nodes
 Not only text nodes, you can specify what types of nodes you would like to access.
 
 ```swift
@@ -229,14 +227,14 @@ let document = ...
 document.root?.childNodes(ofTypes: [.Element, .Text, .Comment])
 ```
 
-##Migrating From Ono?
+## Migrating From Ono?
 Looking at example programs is the swiftest way to know the difference. The following 2 examples do exactly the same thing.
 
 [Ono Example](https://github.com/mattt/Ono/blob/master/Example/main.m)
 
 [Fuzi Example](FuziDemo/FuziDemo/main.swift)
 
-###Accessing children
+### Accessing children
 **Ono**
 
 ```objc
@@ -259,7 +257,7 @@ for element in parent.children {
 }
 doc.children(tag: tag, inNamespace:namespace)
 ```
-###Iterate through query results
+### Iterate through query results
 **Ono**
 
 Conforms to `NSFastEnumeration`.
@@ -310,7 +308,7 @@ if let nthElement = doc.css(css)[n] {
 let count = doc.xpath(xpath).count
 ```
 
-###Evaluating XPath Functions
+### Evaluating XPath Functions
 **Ono**
 
 ```objc

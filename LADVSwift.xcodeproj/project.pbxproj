@@ -11,6 +11,9 @@
 		941D02511EA37DB300616F03 /* CompetitionFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */; };
 		943D8A481F3DD8280032A43C /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D8A471F3DD8280032A43C /* Club.swift */; };
 		943D8A4A1F3DD8660032A43C /* Club+JSONDecodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D8A491F3DD8660032A43C /* Club+JSONDecodeable.swift */; };
+		943FF6AF20BAE9310009BD17 /* AusList.json in Resources */ = {isa = PBXBuildFile; fileRef = 943FF6AE20BAE9310009BD17 /* AusList.json */; };
+		943FF6B120BAE9770009BD17 /* AuschreibungParseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF6B020BAE9770009BD17 /* AuschreibungParseTest.swift */; };
+		943FF6B320BAEE8B0009BD17 /* PerfomaceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF6B220BAEE8B0009BD17 /* PerfomaceFormatter.swift */; };
 		9450ADC01F095006005AE8D3 /* MeldungParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450ADBF1F095006005AE8D3 /* MeldungParser.swift */; };
 		94602C991EF66BF60078E6AC /* meldung4.html in Resources */ = {isa = PBXBuildFile; fileRef = 94602C981EF66BF60078E6AC /* meldung4.html */; };
 		947071421EEAB8F300D66889 /* AttendingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947071411EEAB8F300D66889 /* AttendingLists.swift */; };
@@ -26,7 +29,7 @@
 		949F2AB51EA377B800AB3B90 /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B6BD7E1EA37433008CA6D5 /* JSONCodable.framework */; };
 		94B6BD681EA37278008CA6D5 /* LADVSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B6BD5E1EA37278008CA6D5 /* LADVSwift.framework */; };
 		94B6BD6F1EA37278008CA6D5 /* LADVSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 94B6BD611EA37278008CA6D5 /* LADVSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		94B6BD881EA37498008CA6D5 /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD811EA37498008CA6D5 /* Competition.swift */; };
+		94B6BD881EA37498008CA6D5 /* Ausschreibung.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD811EA37498008CA6D5 /* Ausschreibung.swift */; };
 		94B6BD891EA37498008CA6D5 /* CompetitionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD821EA37498008CA6D5 /* CompetitionDetails.swift */; };
 		94B6BD8A1EA37498008CA6D5 /* CompetitionLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD831EA37498008CA6D5 /* CompetitionLocation.swift */; };
 		94B6BD8B1EA37498008CA6D5 /* CompetitionKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD841EA37498008CA6D5 /* CompetitionKind.swift */; };
@@ -40,7 +43,6 @@
 		94B6BD9D1EA374A8008CA6D5 /* PerformanceOfDisciplin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD931EA374A8008CA6D5 /* PerformanceOfDisciplin.swift */; };
 		94B6BD9E1EA374A8008CA6D5 /* AgeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD941EA374A8008CA6D5 /* AgeClass.swift */; };
 		94B6BD9F1EA374A8008CA6D5 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD951EA374A8008CA6D5 /* Region.swift */; };
-		94B6BDA01EA374A8008CA6D5 /* Identifieable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD961EA374A8008CA6D5 /* Identifieable.swift */; };
 		94B6BDA11EA374A8008CA6D5 /* AthleteDescribing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD971EA374A8008CA6D5 /* AthleteDescribing.swift */; };
 		94B6BDA21EA374A8008CA6D5 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD981EA374A8008CA6D5 /* Gender.swift */; };
 		94B6BDA81EA374C2008CA6D5 /* Competition+JSONDecodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BDA31EA374C2008CA6D5 /* Competition+JSONDecodeable.swift */; };
@@ -56,7 +58,6 @@
 		94B6BDB81EA374D5008CA6D5 /* Array+Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BDB51EA374D5008CA6D5 /* Array+Split.swift */; };
 		94B949FE1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B949FD1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift */; };
 		94B94A001EA6638100AE0E19 /* SearchAthletes.json in Resources */ = {isa = PBXBuildFile; fileRef = 94B949FF1EA6638100AE0E19 /* SearchAthletes.json */; };
-		94C8784C1EAFD2DB00B98393 /* LADV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C8784B1EAFD2DB00B98393 /* LADV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,9 @@
 		941D02501EA37DB300616F03 /* CompetitionFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionFilterTests.swift; sourceTree = "<group>"; };
 		943D8A471F3DD8280032A43C /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		943D8A491F3DD8660032A43C /* Club+JSONDecodeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Club+JSONDecodeable.swift"; sourceTree = "<group>"; };
+		943FF6AE20BAE9310009BD17 /* AusList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AusList.json; sourceTree = "<group>"; };
+		943FF6B020BAE9770009BD17 /* AuschreibungParseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuschreibungParseTest.swift; sourceTree = "<group>"; };
+		943FF6B220BAEE8B0009BD17 /* PerfomaceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfomaceFormatter.swift; sourceTree = "<group>"; };
 		9450ADBF1F095006005AE8D3 /* MeldungParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeldungParser.swift; sourceTree = "<group>"; };
 		94602C981EF66BF60078E6AC /* meldung4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = meldung4.html; sourceTree = "<group>"; };
 		9470713F1EEAB70C00D66889 /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/iOS/SwiftSoup.framework; sourceTree = "<group>"; };
@@ -95,7 +99,7 @@
 		94B6BD6E1EA37278008CA6D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94B6BD7D1EA37433008CA6D5 /* DBNetworkStack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DBNetworkStack.framework; path = ../Carthage/Build/iOS/DBNetworkStack.framework; sourceTree = "<group>"; };
 		94B6BD7E1EA37433008CA6D5 /* JSONCodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONCodable.framework; path = ../Carthage/Build/iOS/JSONCodable.framework; sourceTree = "<group>"; };
-		94B6BD811EA37498008CA6D5 /* Competition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
+		94B6BD811EA37498008CA6D5 /* Ausschreibung.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ausschreibung.swift; sourceTree = "<group>"; };
 		94B6BD821EA37498008CA6D5 /* CompetitionDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionDetails.swift; sourceTree = "<group>"; };
 		94B6BD831EA37498008CA6D5 /* CompetitionLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionLocation.swift; sourceTree = "<group>"; };
 		94B6BD841EA37498008CA6D5 /* CompetitionKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionKind.swift; sourceTree = "<group>"; };
@@ -109,7 +113,6 @@
 		94B6BD931EA374A8008CA6D5 /* PerformanceOfDisciplin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceOfDisciplin.swift; sourceTree = "<group>"; };
 		94B6BD941EA374A8008CA6D5 /* AgeClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeClass.swift; sourceTree = "<group>"; };
 		94B6BD951EA374A8008CA6D5 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
-		94B6BD961EA374A8008CA6D5 /* Identifieable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifieable.swift; sourceTree = "<group>"; };
 		94B6BD971EA374A8008CA6D5 /* AthleteDescribing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AthleteDescribing.swift; sourceTree = "<group>"; };
 		94B6BD981EA374A8008CA6D5 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		94B6BDA31EA374C2008CA6D5 /* Competition+JSONDecodeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Competition+JSONDecodeable.swift"; sourceTree = "<group>"; };
@@ -125,7 +128,6 @@
 		94B6BDB51EA374D5008CA6D5 /* Array+Split.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Split.swift"; sourceTree = "<group>"; };
 		94B949FD1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AthletesWebserviceTest.swift; sourceTree = "<group>"; };
 		94B949FF1EA6638100AE0E19 /* SearchAthletes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchAthletes.json; sourceTree = "<group>"; };
-		94C8784B1EAFD2DB00B98393 /* LADV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LADV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +165,7 @@
 		943D8A451F3DCCD50032A43C /* Competition */ = {
 			isa = PBXGroup;
 			children = (
-				94B6BD811EA37498008CA6D5 /* Competition.swift */,
+				94B6BD811EA37498008CA6D5 /* Ausschreibung.swift */,
 				94B6BD821EA37498008CA6D5 /* CompetitionDetails.swift */,
 				94B6BD831EA37498008CA6D5 /* CompetitionLocation.swift */,
 				94B6BD841EA37498008CA6D5 /* CompetitionKind.swift */,
@@ -229,6 +231,8 @@
 				94B949FD1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift */,
 				94B949FF1EA6638100AE0E19 /* SearchAthletes.json */,
 				947071451EEAF2F300D66889 /* MeldeListenParserTest.swift */,
+				943FF6AE20BAE9310009BD17 /* AusList.json */,
+				943FF6B020BAE9770009BD17 /* AuschreibungParseTest.swift */,
 			);
 			path = LADVSwiftTests;
 			sourceTree = "<group>";
@@ -238,7 +242,6 @@
 			children = (
 				94B6BD611EA37278008CA6D5 /* LADVSwift.h */,
 				94B6BD621EA37278008CA6D5 /* Info.plist */,
-				94C8784B1EAFD2DB00B98393 /* LADV.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -251,10 +254,10 @@
 				94B6BD871EA37498008CA6D5 /* Attachement.swift */,
 				949C3EB71EE07CF70077815E /* ResultAttachment.swift */,
 				94B6BD911EA374A8008CA6D5 /* Performance.swift */,
+				943FF6B220BAEE8B0009BD17 /* PerfomaceFormatter.swift */,
 				94B6BD921EA374A8008CA6D5 /* Disciplin.swift */,
 				94B6BD931EA374A8008CA6D5 /* PerformanceOfDisciplin.swift */,
 				94B6BD951EA374A8008CA6D5 /* Region.swift */,
-				94B6BD961EA374A8008CA6D5 /* Identifieable.swift */,
 				947071411EEAB8F300D66889 /* AttendingLists.swift */,
 				943D8A471F3DD8280032A43C /* Club.swift */,
 			);
@@ -349,7 +352,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = freiraum;
 				TargetAttributes = {
 					94B6BD5D1EA37278008CA6D5 = {
@@ -396,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94602C991EF66BF60078E6AC /* meldung4.html in Resources */,
+				943FF6AF20BAE9310009BD17 /* AusList.json in Resources */,
 				94B94A001EA6638100AE0E19 /* SearchAthletes.json in Resources */,
 				947071441EEAF2BC00D66889 /* LADVMEldeListe.html in Resources */,
 				948199471EEEEF0E0070D464 /* meldung2.html in Resources */,
@@ -411,9 +415,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				94B6BD8A1EA37498008CA6D5 /* CompetitionLocation.swift in Sources */,
+				943FF6B320BAEE8B0009BD17 /* PerfomaceFormatter.swift in Sources */,
 				94B6BD991EA374A8008CA6D5 /* Athlete.swift in Sources */,
 				94B6BD8B1EA37498008CA6D5 /* CompetitionKind.swift in Sources */,
-				94C8784C1EAFD2DB00B98393 /* LADV.swift in Sources */,
 				94B6BDA11EA374A8008CA6D5 /* AthleteDescribing.swift in Sources */,
 				943D8A4A1F3DD8660032A43C /* Club+JSONDecodeable.swift in Sources */,
 				94B6BDB11EA374CC008CA6D5 /* AthletDetails+JSONDecodable.swift in Sources */,
@@ -436,8 +440,7 @@
 				94B6BDA81EA374C2008CA6D5 /* Competition+JSONDecodeable.swift in Sources */,
 				94B6BDB81EA374D5008CA6D5 /* Array+Split.swift in Sources */,
 				94B6BD9D1EA374A8008CA6D5 /* PerformanceOfDisciplin.swift in Sources */,
-				94B6BD881EA37498008CA6D5 /* Competition.swift in Sources */,
-				94B6BDA01EA374A8008CA6D5 /* Identifieable.swift in Sources */,
+				94B6BD881EA37498008CA6D5 /* Ausschreibung.swift in Sources */,
 				949C3EB81EE07CF70077815E /* ResultAttachment.swift in Sources */,
 				94B6BD9F1EA374A8008CA6D5 /* Region.swift in Sources */,
 				94B6BD8D1EA37498008CA6D5 /* CompetitionResultDetails.swift in Sources */,
@@ -455,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94B949FE1EA4C0E100AE0E19 /* AthletesWebserviceTest.swift in Sources */,
+				943FF6B120BAE9770009BD17 /* AuschreibungParseTest.swift in Sources */,
 				941D02511EA37DB300616F03 /* CompetitionFilterTests.swift in Sources */,
 				947071461EEAF2F300D66889 /* MeldeListenParserTest.swift in Sources */,
 			);
@@ -481,15 +485,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -535,15 +547,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

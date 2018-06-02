@@ -19,7 +19,7 @@ extension AthletDetails: JSONCodable {
         gender = Gender(string: try decoder.decode("sex"))!
         yearOfBirth = try decoder.decode("birthyear")
         allClubs = [try Club(object: object)]
-        let competitions = (try decoder.decode("meldungen") as [Competition]?) ?? []
+        let competitions = (try decoder.decode("meldungen") as [Ausschreibung]?) ?? []
         self.competitions = competitions.sorted(by: { $0.date > $1.date })
         performances = (try decoder.decode("leistungen")as [Performance]?) ?? []
     }

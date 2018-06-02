@@ -6,7 +6,7 @@
 //  Copyright © 2017 freiraum. All rights reserved.
 //
 
-public struct Club {
+public struct Club: Hashable {
     public let name: String
     public let number: Int
     public let region: Region

@@ -6,9 +6,21 @@
 //  Copyright © 2017 freiraum. All rights reserved.
 //
 
+// TODO: Remove with swift 4.2
+extension Array: Hashable where Element: Hashable {
+    public var hashValue: Int {
+        return 0
+    }
+}
+// TODO: Remove with swift 4.2
+extension Optional: Hashable where Wrapped: Hashable {
+    public var hashValue: Int {
+        return 0
+    }
+}
 import Foundation
 
-public struct PerformancesOfDisciplin {
+public struct PerformancesOfDisciplin: Hashable {
     public let disciplin: Disciplin
     public let performances: [Performance]
     public var personalBest: Performance? {
@@ -17,7 +29,7 @@ public struct PerformancesOfDisciplin {
 }
 
 public extension PerformancesOfDisciplin {
-    var perYearPeromances: ([[Performance]], [String]) {
+    var perYearPerformances: ([[Performance]], [String]) {
         let sortedByYear = performances.split(sectionSpecificElement:  { $0.dateText.components(separatedBy: ".").last! }).sorted(by: { $0.first!.date > $1.first!.date })
         let years = sortedByYear.map({  $0.first!.dateText.components(separatedBy: ".").last! })
         

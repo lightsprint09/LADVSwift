@@ -8,13 +8,7 @@
 
 import Foundation
 
-public struct Attachement {
+public struct Attachement: Hashable {
     public let name: String
     public let url: URL
-}
-
-extension Attachement: Identifieable {
-    public var id: Int {
-        return url.absoluteString.hashValue
-    }
 }

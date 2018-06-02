@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Region {
+public struct Region: Hashable {
     public let id: String
     public let name: String
     

@@ -21,7 +21,7 @@ class CompetitionFilterTest: XCTestCase {
         let dictionary = filter.toDictionary()
         
         //Then
-        XCTAssertEqual(dictionary["klasse"] as! String, "dlvID")
+        XCTAssertEqual(dictionary["klasse"], "dlvID")
     }
     
     func testAgeClassesNil() {

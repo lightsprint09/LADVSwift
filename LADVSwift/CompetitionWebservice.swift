@@ -12,23 +12,22 @@ import DBNetworkStack
 public struct CompetitionWebService {
     
     private let baseURL: URL
+    private let jsonDecoder: JSONDecoder
     
     public init(baseURL: URL) {
         self.baseURL = baseURL
+        jsonDecoder = JSONDecoder()
+        jsonDecoder.dateDecodingStrategy = JSONDecoder.DateDecodingStrategy.millisecondsSince1970
     }
     
-    public func searchCompetitions(filter: CompetitionFilter) -> Resource<Array<Competition>> {
+    public func searchCompetitions(filter: CompetitionFilter) -> Resource<[Ausschreibung]> {
         var parameters = filter.toDictionary()
         parameters["mostCurrent"] = "\(true)"
         parameters["limit"] = "\(100)"
         
         let request = URLRequest(path: "ausList", baseURL: baseURL, parameters: parameters)
         
-        return Resource(request: request, parse: { data in
-            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [Any]
-            
-            return try Array(JSONArray: json)
-        })
+        return Resource(request: request, decoder: jsonDecoder)
     }
     
     public func competitionDetails(for competitionIds: [Int]) -> Resource<[CompetitionDetails]> {

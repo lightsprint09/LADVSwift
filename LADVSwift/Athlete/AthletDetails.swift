@@ -16,7 +16,7 @@ public struct AthletDetails {
     public let gender: Gender
     public let yearOfBirth: Int
     public let allClubs: [Club]
-    public let competitions: [Competition]
+    public let competitions: [Ausschreibung]
     public let performances: [Performance]
 }
 
@@ -29,7 +29,7 @@ extension AthletDetails {
 extension AthletDetails: AthleteDescribing { }
 
 public extension AthletDetails{
-    func sortedCompetitions() -> ([[Competition]], description: [String]) {
+    func sortedCompetitions() -> ([[Ausschreibung]], description: [String]) {
         let sortedCompetitions = competitions.split(sectionSpecificElement: { $0.date < Date() })
         let description = sortedCompetitions.map { ($0.first!.date < Date()) ? "Gestartet" : "Gemeldet" }
         

@@ -100,11 +100,9 @@ $ pod install
 
 ### 手动导入
 1. 将`Fuzi`文件夹下所有`*.swift`文件添加到您的Xcode项目中。
-2. 将`libxml2`文件夹拷到你的项目路径下的某处，下称`/path/to/somewhere`。
-3. 修改Xcode项目的`Build Settings`:
-   1. 向`Swift Compiler - Search Paths`的`Import Paths`条目下添加`/path/to/somewhere/libxml2`。
-   2. 向`Search Paths`的`Header Search Paths`条目下添加`$(SDKROOT)/usr/include/libxml2`。
-   3. 向`Linking`的`Other Linker Flags`条目下添加`-lxml2`。
+2. 修改Xcode项目的`Build Settings`:
+   1. 向`Search Paths`的`Header Search Paths`条目下添加`$(SDKROOT)/usr/include/libxml2`。
+   2. 向`Linking`的`Other Linker Flags`条目下添加`-lxml2`。
 
 ### 通过[Carthage](https://github.com/Carthage/Carthage)
 在项目的根目录下创建名为 `Cartfile` 或 `Cartfile.private`的文件，并加入如下一行:
@@ -123,15 +121,15 @@ $ carthage update
 2. `Build Settings`中，向`Search Paths`的`Header Search Paths`条目下添加`$(SDKROOT)/usr/include/libxml2`。
 
 
-##例子
-###XML
+## 例子
+### XML
 ```swift
 import Fuzi
 
 let xml = "..."
 do {
   // if encoding is omitted, it defaults to NSUTF8StringEncoding
-  let doc = try XMLDocument(string: html, encoding: NSUTF8StringEncoding)
+  let document = try XMLDocument(string: html, encoding: NSUTF8StringEncoding)
   if let root = document.root {
     print(root.tag)
     
@@ -156,7 +154,7 @@ do {
   }
 }
 ```
-###HTML
+### HTML
 `HTMLDocument` 是 `XMLDocument` 的子类。
 
 ```swift
@@ -199,7 +197,7 @@ do {
 }
 ```
 
-###如果觉得没必要处理异常
+### 如果觉得没必要处理异常
 
 ```swift
 import Fuzi
@@ -218,7 +216,7 @@ let doc2 = try! HTMLDocument(string: html)
 //...
 ```
 
-###我想访问文字节点
+### 我想访问文字节点
 不仅文字节点，你可以指定你想获取的任何类型的节点。
 
 ```swift
@@ -227,14 +225,14 @@ let document = ...
 document.root?.childNodes(ofTypes: [.Element, .Text, .Comment])
 ```
 
-##从Ono转移到Fuzi
+## 从Ono转移到Fuzi
 下面两个示例程序做的事情是完全一样的，通过比较能很快了解两者的异同。
 
 [Ono示例](https://github.com/mattt/Ono/blob/master/Example/main.m)
 
 [Fuzi示例](FuziDemo/FuziDemo/main.swift)
 
-###访问子节点
+### 访问子节点
 **Ono**
 
 ```objc
@@ -257,7 +255,7 @@ for element in parent.children {
 }
 doc.children(tag: tag, inNamespace:namespace)
 ```
-###迭代查询结果
+### 迭代查询结果
 **Ono**
 
 查询结果实现了`NSFastEnumeration`协议。
@@ -307,7 +305,7 @@ if let nthElement = doc.css(css)[n] {
 // total element count
 let count = doc.xpath(xpath).count
 ```
-###执行XPath函数
+### 执行XPath函数
 **Ono**
 
 ```objc

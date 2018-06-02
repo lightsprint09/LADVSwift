@@ -15,8 +15,7 @@ fileprivate let performanceDateFormatter: DateFormatter = {
     return formatter
 }()
 
-
-public struct Performance {
+public struct Performance: Hashable {    
     public let location: String
     public let disciplin: Disciplin
     public let value: String
@@ -24,29 +23,6 @@ public struct Performance {
     public let isPersonalBest: Bool
     public let indoor: Bool
     public let wind: String?
-    
-    public var formattedValue: String {
-        switch disciplin.unit {
-        case "METRISCH":
-           return value + "m"
-        case "ZEIT":
-            let componetsCount = value.components(separatedBy: ":").count
-            if componetsCount == 1 {
-                return value + "s"
-            }
-            if componetsCount == 2 {
-                return value + "min"
-            }
-            if componetsCount == 3 {
-                return value + "h"
-            }
-            return value
-        case "PUNKTE":
-            return value + "Punkte"
-        default:
-            return value
-        }
-    }
     
     public var compareableValue: Double? {
         if let double = Double(value) {
@@ -69,11 +45,4 @@ extension Performance {
     public var date: Date {
         return performanceDateFormatter.date(from: dateText)!
     }
-}
-
-extension Performance: Identifieable {
-    public var id: Int {
-        return (location + dateText + value + "\(isPersonalBest)").hashValue
-    }
-    
 }
