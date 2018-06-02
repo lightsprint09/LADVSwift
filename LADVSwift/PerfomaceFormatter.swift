@@ -10,6 +10,8 @@ import Foundation
 
 public final class PerfomaceFormatter {
     
+    public init() {}
+    
     public func string(for performance: Performance) -> String {
         let value = performance.value
         switch performance.disciplin.unit {
