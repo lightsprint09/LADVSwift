@@ -20,7 +20,7 @@ public struct AthleteWebService {
     public func searchAthlets(with name: String, `in` region: Region? = nil, forYear year: Int? = nil) -> Resource<[Athlete]> {
         var parameter =  ["query": "*\(name)*"]
         parameter["lv"] = region?.id
-        parameter["datayear"] = year
+        parameter["datayear"] = "\(year)"
 
         let request = URLRequest(path: "athletQuery", baseURL: baseURL, parameters: parameter)
         
