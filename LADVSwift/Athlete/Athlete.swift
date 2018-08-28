@@ -19,7 +19,7 @@ public struct Athlete: Hashable {
 }
 
 extension Athlete {
-    public var currentClub: Club {
-        get { return allClubs.first! }
+    public var currentClub: Club? {
+        get { return allClubs.first }
     }
 }
