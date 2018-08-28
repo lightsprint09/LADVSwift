@@ -18,6 +18,6 @@ extension Athlete: JSONCodable {
         lastname = try decoder.decode("surname")
         gender = Gender(string: try decoder.decode("sex"))!
         yearOfBirth = try decoder.decode("birthyear")
-        allClubs = [try Club(object: object)]
+        allClubs = [try? Club(object: object)].compactMap { $0 }
     }
 }
