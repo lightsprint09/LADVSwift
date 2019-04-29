@@ -1,3 +1,2 @@
 github "dbsystel/dbnetworkstack" ~> 1.0
-github "matthewcheok/JSONCodable" ~> 3.0
-github "cezheng/Fuzi" ~> 2.0.0
+github "cezheng/Fuzi" ~> 3.0.0

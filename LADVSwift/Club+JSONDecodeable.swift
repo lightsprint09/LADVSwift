@@ -6,7 +6,7 @@
 //  Copyright © 2017 freiraum. All rights reserved.
 //
 
-import JSONCodable
+
 
 extension Club: JSONDecodable {
     public init(object: JSONObject) throws {

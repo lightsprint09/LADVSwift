@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import JSONCodable
+
 
 extension CompetitionLocation: JSONCodable {
     public init(object: JSONObject) throws {

@@ -6,18 +6,6 @@
 //  Copyright © 2017 freiraum. All rights reserved.
 //
 
-// TODO: Remove with swift 4.2
-extension Array: Hashable where Element: Hashable {
-    public var hashValue: Int {
-        return 0
-    }
-}
-// TODO: Remove with swift 4.2
-extension Optional: Hashable where Wrapped: Hashable {
-    public var hashValue: Int {
-        return 0
-    }
-}
 import Foundation
 
 public struct PerformancesOfDisciplin: Hashable {

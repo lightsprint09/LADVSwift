@@ -12,12 +12,12 @@ import DBNetworkStack
 public struct CompetitionWebService {
     
     private let baseURL: URL
-    private let jsonDecoder: JSONDecoder
+    private let jsonDecoder: Foundation.JSONDecoder
     
     public init(baseURL: URL) {
         self.baseURL = baseURL
-        jsonDecoder = JSONDecoder()
-        jsonDecoder.dateDecodingStrategy = JSONDecoder.DateDecodingStrategy.millisecondsSince1970
+        jsonDecoder = Foundation.JSONDecoder()
+        jsonDecoder.dateDecodingStrategy = .millisecondsSince1970
     }
     
     public func searchCompetitions(filter: CompetitionFilter) -> Resource<[Ausschreibung]> {

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import JSONCodable
+
 
 extension Athlete: JSONCodable {
     public init(object: JSONObject) throws {

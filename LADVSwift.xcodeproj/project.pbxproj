@@ -15,6 +15,13 @@
 		943FF6B120BAE9770009BD17 /* AuschreibungParseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF6B020BAE9770009BD17 /* AuschreibungParseTest.swift */; };
 		943FF6B320BAEE8B0009BD17 /* PerfomaceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FF6B220BAEE8B0009BD17 /* PerfomaceFormatter.swift */; };
 		9450ADC01F095006005AE8D3 /* MeldungParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450ADBF1F095006005AE8D3 /* MeldungParser.swift */; };
+		94539445227706270077430B /* JSONHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453943E227706270077430B /* JSONHelpers.swift */; };
+		94539446227706270077430B /* JSONTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9453943F227706270077430B /* JSONTransformer.swift */; };
+		94539447227706270077430B /* JSONEncodable+Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94539440227706270077430B /* JSONEncodable+Mirror.swift */; };
+		94539448227706270077430B /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94539441227706270077430B /* JSONDecodable.swift */; };
+		94539449227706270077430B /* JSONString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94539442227706270077430B /* JSONString.swift */; };
+		9453944A227706270077430B /* JSONCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94539443227706270077430B /* JSONCodable.swift */; };
+		9453944B227706270077430B /* JSONEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94539444227706270077430B /* JSONEncodable.swift */; };
 		94602C991EF66BF60078E6AC /* meldung4.html in Resources */ = {isa = PBXBuildFile; fileRef = 94602C981EF66BF60078E6AC /* meldung4.html */; };
 		947071421EEAB8F300D66889 /* AttendingLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947071411EEAB8F300D66889 /* AttendingLists.swift */; };
 		947071441EEAF2BC00D66889 /* LADVMEldeListe.html in Resources */ = {isa = PBXBuildFile; fileRef = 947071431EEAF2BC00D66889 /* LADVMEldeListe.html */; };
@@ -26,7 +33,6 @@
 		949C3EB81EE07CF70077815E /* ResultAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C3EB71EE07CF70077815E /* ResultAttachment.swift */; };
 		949C3EBA1EE07E0A0077815E /* ResultAttachment+JSONDecodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C3EB91EE07E0A0077815E /* ResultAttachment+JSONDecodeable.swift */; };
 		949F2AB41EA377B800AB3B90 /* DBNetworkStack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B6BD7D1EA37433008CA6D5 /* DBNetworkStack.framework */; };
-		949F2AB51EA377B800AB3B90 /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B6BD7E1EA37433008CA6D5 /* JSONCodable.framework */; };
 		94B6BD681EA37278008CA6D5 /* LADVSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B6BD5E1EA37278008CA6D5 /* LADVSwift.framework */; };
 		94B6BD6F1EA37278008CA6D5 /* LADVSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 94B6BD611EA37278008CA6D5 /* LADVSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		94B6BD881EA37498008CA6D5 /* Ausschreibung.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B6BD811EA37498008CA6D5 /* Ausschreibung.swift */; };
@@ -79,6 +85,13 @@
 		943FF6B020BAE9770009BD17 /* AuschreibungParseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuschreibungParseTest.swift; sourceTree = "<group>"; };
 		943FF6B220BAEE8B0009BD17 /* PerfomaceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfomaceFormatter.swift; sourceTree = "<group>"; };
 		9450ADBF1F095006005AE8D3 /* MeldungParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeldungParser.swift; sourceTree = "<group>"; };
+		9453943E227706270077430B /* JSONHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHelpers.swift; sourceTree = "<group>"; };
+		9453943F227706270077430B /* JSONTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransformer.swift; sourceTree = "<group>"; };
+		94539440227706270077430B /* JSONEncodable+Mirror.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONEncodable+Mirror.swift"; sourceTree = "<group>"; };
+		94539441227706270077430B /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		94539442227706270077430B /* JSONString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONString.swift; sourceTree = "<group>"; };
+		94539443227706270077430B /* JSONCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCodable.swift; sourceTree = "<group>"; };
+		94539444227706270077430B /* JSONEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodable.swift; sourceTree = "<group>"; };
 		94602C981EF66BF60078E6AC /* meldung4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = meldung4.html; sourceTree = "<group>"; };
 		9470713F1EEAB70C00D66889 /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/iOS/SwiftSoup.framework; sourceTree = "<group>"; };
 		947071411EEAB8F300D66889 /* AttendingLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendingLists.swift; sourceTree = "<group>"; };
@@ -135,7 +148,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				949F2AB51EA377B800AB3B90 /* JSONCodable.framework in Frameworks */,
 				949F2AB41EA377B800AB3B90 /* DBNetworkStack.framework in Frameworks */,
 				9470714C1EEB09EC00D66889 /* Fuzi.framework in Frameworks */,
 			);
@@ -185,6 +197,20 @@
 				94B6BD981EA374A8008CA6D5 /* Gender.swift */,
 			);
 			path = Athlete;
+			sourceTree = "<group>";
+		};
+		9453943D227706270077430B /* JSONCodable */ = {
+			isa = PBXGroup;
+			children = (
+				9453943E227706270077430B /* JSONHelpers.swift */,
+				9453943F227706270077430B /* JSONTransformer.swift */,
+				94539440227706270077430B /* JSONEncodable+Mirror.swift */,
+				94539441227706270077430B /* JSONDecodable.swift */,
+				94539442227706270077430B /* JSONString.swift */,
+				94539443227706270077430B /* JSONCodable.swift */,
+				94539444227706270077430B /* JSONEncodable.swift */,
+			);
+			path = JSONCodable;
 			sourceTree = "<group>";
 		};
 		94B6BD541EA37278008CA6D5 = {
@@ -267,6 +293,7 @@
 		94B6BD7B1EA373F4008CA6D5 /* Model+JSONSerialization */ = {
 			isa = PBXGroup;
 			children = (
+				9453943D227706270077430B /* JSONCodable */,
 				94B6BDA31EA374C2008CA6D5 /* Competition+JSONDecodeable.swift */,
 				94B6BDA41EA374C2008CA6D5 /* CompetitionDetails+JSONDecodeable.swift */,
 				94B6BDA51EA374C2008CA6D5 /* CompetitionLocation+JSONDecodeable.swift */,
@@ -352,7 +379,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = freiraum;
 				TargetAttributes = {
 					94B6BD5D1EA37278008CA6D5 = {
@@ -370,10 +397,9 @@
 			};
 			buildConfigurationList = 94B6BD581EA37278008CA6D5 /* Build configuration list for PBXProject "LADVSwift" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 			);
 			mainGroup = 94B6BD541EA37278008CA6D5;
 			productRefGroup = 94B6BD5F1EA37278008CA6D5 /* Products */;
@@ -425,9 +451,12 @@
 				9450ADC01F095006005AE8D3 /* MeldungParser.swift in Sources */,
 				94B6BDAA1EA374C2008CA6D5 /* CompetitionLocation+JSONDecodeable.swift in Sources */,
 				94B6BDAB1EA374C2008CA6D5 /* CompetitionKind+JSONDecodeable.swift in Sources */,
+				94539448227706270077430B /* JSONDecodable.swift in Sources */,
+				94539445227706270077430B /* JSONHelpers.swift in Sources */,
 				94B6BD891EA37498008CA6D5 /* CompetitionDetails.swift in Sources */,
 				94B6BDB61EA374D5008CA6D5 /* AtheleteRequests.swift in Sources */,
 				94B6BD8C1EA37498008CA6D5 /* CompetitionCategory.swift in Sources */,
+				94539446227706270077430B /* JSONTransformer.swift in Sources */,
 				948751B71EA4B9AF00244DF9 /* CompetitionResultDetails+JSONDecodable.swift in Sources */,
 				94B6BD9A1EA374A8008CA6D5 /* AthletDetails.swift in Sources */,
 				94B6BD9B1EA374A8008CA6D5 /* Performance.swift in Sources */,
@@ -436,17 +465,21 @@
 				94B6BDB71EA374D5008CA6D5 /* CompetitionWebservice.swift in Sources */,
 				943D8A481F3DD8280032A43C /* Club.swift in Sources */,
 				94B6BD9C1EA374A8008CA6D5 /* Disciplin.swift in Sources */,
+				94539449227706270077430B /* JSONString.swift in Sources */,
+				9453944A227706270077430B /* JSONCodable.swift in Sources */,
 				941D024F1EA37BFC00616F03 /* CompetitionSearchFilter.swift in Sources */,
 				94B6BDA81EA374C2008CA6D5 /* Competition+JSONDecodeable.swift in Sources */,
 				94B6BDB81EA374D5008CA6D5 /* Array+Split.swift in Sources */,
 				94B6BD9D1EA374A8008CA6D5 /* PerformanceOfDisciplin.swift in Sources */,
 				94B6BD881EA37498008CA6D5 /* Ausschreibung.swift in Sources */,
+				94539447227706270077430B /* JSONEncodable+Mirror.swift in Sources */,
 				949C3EB81EE07CF70077815E /* ResultAttachment.swift in Sources */,
 				94B6BD9F1EA374A8008CA6D5 /* Region.swift in Sources */,
 				94B6BD8D1EA37498008CA6D5 /* CompetitionResultDetails.swift in Sources */,
 				94B6BDAC1EA374C2008CA6D5 /* Attachment+JSONDecodeable.swift in Sources */,
 				949C3EBA1EE07E0A0077815E /* ResultAttachment+JSONDecodeable.swift in Sources */,
 				947071421EEAB8F300D66889 /* AttendingLists.swift in Sources */,
+				9453944B227706270077430B /* JSONEncodable.swift in Sources */,
 				94B6BDA91EA374C2008CA6D5 /* CompetitionDetails+JSONDecodeable.swift in Sources */,
 				94B6BD9E1EA374A8008CA6D5 /* AgeClass.swift in Sources */,
 				94B6BDA21EA374A8008CA6D5 /* Gender.swift in Sources */,
@@ -479,6 +512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -531,6 +565,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -541,6 +576,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -585,6 +621,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -617,7 +654,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -646,7 +682,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
@@ -664,7 +699,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -681,7 +715,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

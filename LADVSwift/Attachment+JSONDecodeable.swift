@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import JSONCodable
+
 
 extension Attachement: JSONCodable {
     public init(object: JSONObject) throws {
