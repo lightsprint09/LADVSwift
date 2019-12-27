@@ -14,8 +14,10 @@ public struct Athlete: Hashable {
     public let gender: Gender
     public let yearOfBirth: Int
     public let allClubs: [Club]
-    
-    public var hashValue: Int { return id.hashValue }
+        
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 extension Athlete {

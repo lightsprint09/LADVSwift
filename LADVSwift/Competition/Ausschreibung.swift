@@ -28,19 +28,32 @@ extension CompetitionDescribing {
 }
 
 public struct Ausschreibung: Hashable, Codable {
-    public let id: Int
-    public let name: String
-    public let date: Date
-    public let endDate: Date?
-    public let city: String?
-    public let locationName: String
+    public var id: Int
+    public var name: String
+    public var date: Date
+    public var endDate: Date?
+    public var city: String?
+    public var locationName: String
 
-    public let description: String
+    public var description: String
 
     //Meldung
-    public let meldeAdress: String
-    public let meldeEMailAdress: String
-    public let meldeSchlussDate: Date
+    public var meldeAdress: String
+    public var meldeEMailAdress: String
+    public var meldeSchlussDate: Date
+    
+    public init(id: Int, name: String, date: Date, endDate: Date?, city: String?, locationName: String, description: String, meldeAdress: String, meldeEMailAdress: String, meldeSchlussDate: Date) {
+        self.id = id
+        self.name = name
+        self.date = date
+        self.endDate = endDate
+        self.city = city
+        self.locationName = locationName
+        self.description = description
+        self.meldeAdress = meldeAdress
+        self.meldeEMailAdress = meldeEMailAdress
+        self.meldeSchlussDate = meldeSchlussDate
+    }
  
     public enum CodingKeys: String, CodingKey {
         case id
