@@ -14,7 +14,7 @@ struct MeldungParser {
     
     func extract(atIndex index: Int, inNodes nodes: [XMLElement], ageID: String) -> [AttendingDisciplins] {
         let range = nodes[(index + 1)..<nodes.count]
-        let endIndex = range.index(where: { $0.attr("class") == "klasse"}) ?? nodes.count - 1
+        let endIndex = range.firstIndex(where: { $0.attr("class") == "klasse"}) ?? nodes.count - 1
         var result = [AttendingDisciplins]()
         var attendeeIndex = 0
         for i in index..<endIndex {
@@ -89,7 +89,7 @@ struct MeldungParser {
             let performance = teamNode.children[5].stringValue
             
             var athletes = [Attendee]()
-            let index = nodes.index(where: { $0.stringValue == teamNode.stringValue })! + 1
+            let index = nodes.firstIndex(where: { $0.stringValue == teamNode.stringValue })! + 1
             if !(index > nodes.count - 1) {
                 for i in index..<nodes.count - 1 {
                     if nodes[i].attr("class") == "odd" {

@@ -17,7 +17,7 @@ extension URL {
 
 extension Resource {
     func contains(queryItem: URLQueryItem) -> Bool {
-        guard let url = request.asURLRequest().url, let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+        guard let url = request.url, let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             return false
         }
         
@@ -55,7 +55,7 @@ class AthletesWebserviceTest: XCTestCase {
             let athletes = try resource.parse(data!)
             XCTAssertEqual(athletes.count, 10)
         }
-        catch let e {
+        catch _ {
             XCTFail()
         }
     }
