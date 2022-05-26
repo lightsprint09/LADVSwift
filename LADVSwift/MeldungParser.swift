@@ -21,7 +21,7 @@ struct MeldungParser {
             let node = nodes[i]
             if let nodeClass = node.attr("class"), nodeClass == "disziplin" {
                 
-                let id = node.children[0].attr("id")!
+                let id = node.attr("id") ?? node.children[0].attr("id")!
                 let ageRange = id.range(of: ageID)!
                 let ladvId = id.replacingCharacters(in: ageRange, with: "")
                 let disciplin = Disciplin(ladvId: ladvId)

@@ -13,7 +13,7 @@ class MeldeListenParserTest: XCTestCase {
     
     func testParse() {
         //Given
-        let bundle = Bundle(for: MeldeListenParserTest.self)
+        let bundle = Bundle.module
         let url = bundle.url(forResource: "LADVMEldeListe", withExtension: "html")
         
         let htmlString = try? String(contentsOf: url!)
