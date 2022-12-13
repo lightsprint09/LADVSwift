@@ -16,8 +16,8 @@ let package = Package(
             targets: ["LADVSwift"])
     ],
     dependencies: [
-        .package(url: "https://github.com/dbsystel/DBNetworkStack", from: "2.0.0"),
-        .package(url: "https://github.com/cezheng/Fuzi", from: "3.0.0")
+        .package(url: "https://github.com/dbsystel/DBNetworkStack", from: "3.0.0"),
+        .package(url: "https://github.com/cezheng/Fuzi", from: "3.1.3")
     ],
     targets: [
         .target(

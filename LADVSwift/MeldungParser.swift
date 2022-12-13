@@ -23,8 +23,8 @@ struct MeldungParser {
                 
                 let id = node.attr("id") ?? node.children[0].attr("id")!
                 let ageRange = id.range(of: ageID)!
-                let ladvId = id.replacingCharacters(in: ageRange, with: "")
-                let disciplin = Disciplin(ladvId: ladvId)
+                let code = id.replacingCharacters(in: ageRange, with: "")
+                let disciplin = Disciplin(code: code)
                 let attendees = extract(atIndex: index + attendeeIndex, inNodes: nodes)
                 result.append(AttendingDisciplins(requiredPerformance: extractRequiredPerformance(node: node), disciplin: disciplin, attendees: attendees))
                 if attendees.isEmpty {
