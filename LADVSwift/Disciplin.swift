@@ -22,7 +22,7 @@ public struct Disciplin: Hashable {
     public let unit: Unit
 
     public init(dlvID: String) {
-        if let newSelf = Disciplin.all.first(where: { $0.dlvID == dlvID }) {
+        if let newSelf = Disciplin.all.first(where: { $0.dlvID == dlvID || $0.code == dlvID }) {
             self = newSelf
         } else {
             self.name = dlvID
