@@ -12,7 +12,7 @@ import Fuzi
 struct MeldungParser {
     init() {}
     
-    func extract(atIndex index: Int, inNodes nodes: [XMLElement], ageID: String) -> [AttendingDisciplins] {
+    func extract(atIndex index: Int, inNodes nodes: [Fuzi.XMLElement], ageID: String) -> [AttendingDisciplins] {
         let range = nodes[(index + 1)..<nodes.count]
         let endIndex = range.firstIndex(where: { $0.attr("class") == "klasse"}) ?? nodes.count - 1
         var result = [AttendingDisciplins]()
@@ -37,7 +37,7 @@ struct MeldungParser {
         return result
     }
     
-    func extractRequiredPerformance(node: XMLElement) -> String? {
+    func extractRequiredPerformance(node: Fuzi.XMLElement) -> String? {
         if node.stringValue.contains("Mindestleistung") {
             let stringValue = node.stringValue
             let range = stringValue.range(of: "Mindestleistung: ")!
@@ -55,7 +55,7 @@ struct MeldungParser {
         return nil
     }
     
-    func extract(atIndex index: Int, inNodes nodes: [XMLElement]) -> [Meldung] {
+    func extract(atIndex index: Int, inNodes nodes: [Fuzi.XMLElement]) -> [Meldung] {
         if index + 2 >= nodes.count {
             return []
         }
@@ -79,7 +79,7 @@ struct MeldungParser {
         return result
     }
     
-    func extractStaffel(node: XMLElement) -> [Meldung] {
+    func extractStaffel(node: Fuzi.XMLElement) -> [Meldung] {
         let nodes = node.children[0].children
         let teams = nodes.filter { $0.attr("class") == "odd" }
         return teams.map { teamNode in
@@ -106,7 +106,7 @@ struct MeldungParser {
         }
     }
     
-    func extractAttendee(from attributes: [XMLElement]) -> Attendee {
+    func extractAttendee(from attributes: [Fuzi.XMLElement]) -> Attendee {
         let number = Int(attributes[0].stringValue)
         let nameLink = attributes[1].children.isEmpty ? nil : attributes[1].children[0]
         let name = nameLink?.stringValue ?? attributes[1].stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
