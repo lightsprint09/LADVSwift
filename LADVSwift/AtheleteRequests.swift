@@ -52,6 +52,18 @@ public struct AthleteWebService {
             return try Array(JSONArray: json)
         })
     }
+
+    public func personalBest(for athletIds: [Int], year: Int) -> Resource<[AthletDetails]> {
+        let ids = athletIds.map({ "\($0)" }).joined(separator: ",")
+        let parameter = ["id": ids, "best": "true"]
+        let request = URLRequest(path: "athletDetail", baseURL: baseURL, parameters: parameter)
+
+        return Resource(request: request, parse: { data in
+            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [Any]
+
+            return try Array(JSONArray: json)
+        })
+    }
     
     public func athletDeatils(for athletId: Int, year: Int) -> Resource<AthletDetails?> {
         return athletDeatils(for: [athletId], year: year).map(transform: { $0.first })
