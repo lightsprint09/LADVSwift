@@ -53,7 +53,7 @@ public struct AthleteWebService {
         })
     }
 
-    public func personalBest(for athletIds: [Int], year: Int) -> Resource<[AthletDetails]> {
+    public func personalBest(for athletIds: [Int]) -> Resource<[AthletDetails]> {
         let ids = athletIds.map({ "\($0)" }).joined(separator: ",")
         let parameter = ["id": ids, "best": "true"]
         let request = URLRequest(path: "athletDetail", baseURL: baseURL, parameters: parameter)
