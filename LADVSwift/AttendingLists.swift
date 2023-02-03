@@ -46,7 +46,7 @@ public struct AttendingDisciplins: Hashable {
     public let attendees: [Meldung]
 }
 
-public struct MeldungPerAge {
+public struct MeldungPerAge: Hashable {
     public let age: Age
     public let disciplins: [AttendingDisciplins]
 }

@@ -17,19 +17,20 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/dbsystel/DBNetworkStack", from: "3.0.0"),
-        .package(url: "https://github.com/cezheng/Fuzi", from: "3.1.3")
+        .package(url: "https://github.com/scinfu/SwiftSoup.git", from: "2.5.3")
     ],
     targets: [
         .target(
             name: "LADVSwift",
-            dependencies: ["DBNetworkStack", "Fuzi"],
+            dependencies: ["DBNetworkStack", "SwiftSoup"],
             path: "LADVSwift"),
         .testTarget(
             name: "LADVSwiftTests",
             dependencies: ["LADVSwift"],
             path: "LADVSwiftTests",
             resources: [
-                .process("LADVMEldeListe.html")
+                .process("LADVMEldeListe.html"),
+                .process("meldung5.html")
             ]
         )
     ]

@@ -7,11 +7,12 @@
 //
 
 import Foundation
-import Fuzi
+import SwiftSoup
 
 struct MeldungParser {
     init() {}
-    
+
+    /*
     func extract(atIndex index: Int, inNodes nodes: [Fuzi.XMLElement], ageID: String) -> [AttendingDisciplins] {
         let range = nodes[(index + 1)..<nodes.count]
         let endIndex = range.firstIndex(where: { $0.attr("class") == "klasse"}) ?? nodes.count - 1
@@ -122,33 +123,108 @@ struct MeldungParser {
         
         let range = PartialRangeUpTo(index.lowerBound)
         return String(newHref[range])
-    }
+    }*/
     
     public func parse(html: Data) throws -> [MeldungPerAge] {
-        let document = try HTMLDocument(data: html)
-        return parse(document: document)
+        let string = String(data: html, encoding: .utf8)!
+        let document: Document = try SwiftSoup.parse(string)
+        return try parse(document: document)
     }
     
     public func parse(html: String) throws -> [MeldungPerAge] {
-        let document = try HTMLDocument(string: html, encoding: .utf8)
-        return parse(document: document)
+        let document: Document = try SwiftSoup.parse(html)
+        return try parse(document: document)
     }
-    
-    func parse(document: HTMLDocument) -> [MeldungPerAge] {
-        guard let elemets = document.firstChild(xpath: "//div[@class='body']")?.children[1] else {
-            return []
-        }
+
+    func parse(document: Document) throws -> [MeldungPerAge] {
         var result = [MeldungPerAge]()
-        
-        for (i, element) in elemets.children.enumerated() {
-            if let ageElement = element.attr("class"), ageElement == "klasse" {
-                let id = element.children[0].attr("id")
-                let age = Age(any: id!)
-                result.append(MeldungPerAge(age: age, disciplins: extract(atIndex: i, inNodes: elemets.children, ageID: id!)))
+
+
+        for age in Age.all {
+            guard let ageHeadline = try document.getElementById(age.ladvID) else {
+                continue
             }
-            
+            var disciplins = [AttendingDisciplins]()
+            for disciplinAnchor in ageHeadline.siblingElements().filter({ $0.hasClass("anchor") && (try? $0.attr("id")) != age.dlvID && ((try? $0.attr("id")) ?? "").contains( age.dlvID) }) {
+                let dlvID = try disciplinAnchor.attr("id")
+                let disciplin = Disciplin(dlvID: dlvID.replacingOccurrences(of: age.ladvID, with: ""))
+                var meldungen: [Meldung] = []
+                let index = ageHeadline.siblingElements().firstIndex(of: disciplinAnchor)
+                let rows = Array(disciplinAnchor.siblingElements().suffix(from: index! + 2))
+                let end = try rows.firstIndex(where: { try $0.className() != "row" })
+                for row in rows.prefix(upTo: end ?? rows.count - 1) {
+                    guard let athlete = try row.getElementsByTag("a").first(),
+                          let age = try row.getElementsByTag("small").first(),
+                          let verein = try row.getElementsByClass("col-12 overflow-hidden text-nowrap tnsmall").first(),
+                          let performanceElement = try row.getElementsByClass("col-12 text-right").first(),
+                          let number = try row.getElementsByClass("col-2 text-right").first()?.html()  else {
+                        continue
+                    }
+                    let ageAndNation = try age.html().split(separator: " ")
+                    let yearOfBirth: Int = Int(ageAndNation[0])!
+                    let regionText = try verein.html().suffix(5)
+                    let regionId = regionText.replacingOccurrences(of: " (", with: "").replacingOccurrences(of: ")", with: "")
+                    let clubName = try verein.html().replacingOccurrences(of: regionText, with: "")
+                    let region = Region(id: regionId)
+                    let name = try athlete.html()
+                    let id: String?
+                    if let href = try? athlete.attr("href").replacingOccurrences(of: "/leistungsdatenbank/athletenprofil/", with: ""),
+                       let index = href.firstIndex(of: "/") {
+                        id = String(href.prefix(upTo: index))
+                    } else {
+                        id = nil
+                    }
+                    let performance = try performanceElement.html().nilIfEmpty()
+                    let attendee = Attendee(id: id, name: name, number: Int(number), yearOfBirth: yearOfBirth)
+                    let meldung = Meldung(performance: performance, rank: nil, region: region ?? Region(id: "UB", name: "Unbekannt"), clubName: clubName, attendees: [attendee])
+                    meldungen.append(meldung)
+
+                }
+                disciplins.append(AttendingDisciplins(requiredPerformance: nil, disciplin: disciplin, attendees: meldungen))
+            }
+
+            result.append(MeldungPerAge(
+                age: age,
+                disciplins: disciplins
+            ))
+            /*
+            let zipped = zip(document.xpath("[@id='\(id)']/following-sibling::div//a"), document.xpath("[@id='\(id)']/following-sibling::div//a/following-sibling::small"))
+
+            for (athlete, age) in zipped {
+                let ageAndNation = age.stringValue.split(separator: " ")
+                let yearOfBirth: Int = Int(ageAndNation[0])!
+                let clubName = "clubName"
+                let region = Region.all.first!
+                let name = athlete.stringValue
+                let id: String?
+                if let href = athlete.attributes["href"]?.replacingOccurrences(of: "/leistungsdatenbank/athletenprofil/", with: ""),
+                   let index = href.firstIndex(of: "/") {
+                    id = String(href.prefix(upTo: index))
+                } else {
+                    id = nil
+                }
+                let attendee = Attendee(id: id, name: name, number: nil, yearOfBirth: yearOfBirth)
+                let meldung = Meldung(performance: nil, rank: nil, region: region, clubName: clubName, attendees: [attendee])
+                meldungen.append(meldung)
+            }
+            result.append(MeldungPerAge(
+                age: age,
+                disciplins: [
+                    AttendingDisciplins(requiredPerformance: nil, disciplin: disciplin, attendees: meldungen)
+                ])
+            )
+                                                                                                             */
         }
         return result
     }
     
+}
+
+extension String {
+
+    /// Returns `nil` if this string is empty, otherwise the string itself.
+    public func nilIfEmpty() -> String? {
+        return isEmpty ? nil : self
+    }
+
 }
