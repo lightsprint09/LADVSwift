@@ -30,7 +30,8 @@ let package = Package(
             path: "LADVSwiftTests",
             resources: [
                 .process("meldungStaffel.html"),
-                .process("meldung5.html")
+                .process("meldung5.html"),
+                .process("meldung6.html")
             ]
         )
     ]

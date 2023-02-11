@@ -64,4 +64,14 @@ class MeldeListenParserTest: XCTestCase {
 
         XCTAssertEqual(parser.count, 6)
     }
+
+    func testParser7Empty() throws {
+        let bundle = Bundle.module
+        let url = bundle.url(forResource: "meldung6", withExtension: "html")
+
+        let htmlString = try String(contentsOf: url!)
+        let parser = try MeldungParser().parse(html: htmlString)
+
+        XCTAssertEqual(parser[1].disciplins[0].attendees.count, 0)
+    }
 }

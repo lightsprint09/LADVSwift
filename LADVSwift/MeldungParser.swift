@@ -47,7 +47,9 @@ struct MeldungParser {
 
                 let index = ageHeadline.siblingElements().firstIndex(of: disciplinAnchor)
                 let rows = Array(disciplinAnchor.siblingElements().suffix(from: index!))
-                guard let row = try rows.first(where: { try $0.className() == "row" }) else {
+                let row = rows[2]
+                guard try row.className() == "row" else {
+                    disciplins.append(AttendingDisciplins(requiredPerformance: nil, disciplin: disciplin, attendees: []))
                     continue
                 }
                 let athleteRows = try row.getElementsByClass("einzel block ")
