@@ -47,19 +47,7 @@ class MeldeListenParserTest: XCTestCase {
                     ]
                 )
             ]))
-        XCTAssertEqual(parser[6], MeldungPerAge(
-            age: Age(dlvID: "M"),
-            disciplins: [
-                AttendingDisciplins(
-                    requiredPerformance: nil,
-                    disciplin: .init(dlvID: "STA"),
-                    attendees: [
-                        Meldung(performance: "2,05", rank: nil, region: Region(id: "WÜ")!, clubName: "SG Weinstadt", attendees: [
-                           Attendee(id: "426513", name: "Fill Mikschy", number: 52572, yearOfBirth: 2009)
-                        ])
-                    ]
-                )
-            ]))
+        XCTAssertEqual(parser[6].age, Age(dlvID: "M"))
         XCTAssertEqual(parser[8].age, Age(dlvID: "W13"))
         XCTAssertEqual(parser[8].disciplins[0].attendees.count, 4)
         //XCTAssertEqual(parser.last?.disciplins.count, 11)

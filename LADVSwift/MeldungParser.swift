@@ -14,12 +14,11 @@ struct MeldungParser {
 
     public func parse(html: Data) throws -> [MeldungPerAge] {
         let string = String(data: html, encoding: .utf8)!
-        let document: Document = try SwiftSoup.parse(string)
-        return try parse(document: document)
+        return try parse(html: string)
     }
     
     public func parse(html: String) throws -> [MeldungPerAge] {
-        let document: Document = try SwiftSoup.parse(html)
+        let document: Document = try SwiftSoup.parse(html.replacingOccurrences(of: "space", with: ""))
         return try parse(document: document)
     }
 
@@ -34,10 +33,10 @@ struct MeldungParser {
             var disciplins = [AttendingDisciplins]()
 
             let disciplinAnchors = try document.getElementsByClass("anchor").filter({
-                guard let id = try? $0.attr("id"), id != age.dlvID, $0.hasClass("anchor"), id.contains(age.dlvID) else {
+                guard let id = try? $0.attr("id"), id != age.dlvID, $0.hasClass("anchor"), id.contains(age.ladvID) else {
                     return false
                 }
-                let diciplin = id.replacingOccurrences(of: age.dlvID, with: "")
+                let diciplin = id.replacingOccurrences(of: age.ladvID, with: "")
                 return disciplinDlvIDs.contains(diciplin)
             })
 
@@ -51,31 +50,11 @@ struct MeldungParser {
                 guard let row = try rows.first(where: { try $0.className() == "row" }) else {
                     continue
                 }
-                for athleteRow in try row.getElementsByClass("einzel block ") {
-                    guard let athlete = try athleteRow.getElementsByTag("a").first(),
-                          let age = try athleteRow.getElementsByTag("small").first(),
-                          let verein = try athleteRow.getElementsByClass("col-12 overflow-hidden text-nowrap tnsmall").first(),
-                          let performanceElement = try athleteRow.getElementsByClass("col-12 text-right").first(),
-                          let number = try athleteRow.getElementsByClass("col-2 text-right").first()?.html()  else {
+                let athleteRows = try row.getElementsByClass("einzel block ")
+                for athleteRow in athleteRows {
+                    guard let meldung = try parseEinzelMeldung(athleteRow: athleteRow) ?? parseTeamMeldung(meldungRow: athleteRow) else {
                         continue
                     }
-                    let ageAndNation = try age.html().split(separator: " ")
-                    let yearOfBirth: Int = Int(ageAndNation[0])!
-                    let regionText = try verein.html().suffix(5)
-                    let regionId = regionText.replacingOccurrences(of: " (", with: "").replacingOccurrences(of: ")", with: "")
-                    let clubName = try verein.html().replacingOccurrences(of: regionText, with: "")
-                    let region = Region(id: regionId)
-                    let name = try athlete.html()
-                    let id: String?
-                    if let href = try? athlete.attr("href").replacingOccurrences(of: "/leistungsdatenbank/athletenprofil/", with: ""),
-                       let index = href.firstIndex(of: "/") {
-                        id = String(href.prefix(upTo: index))
-                    } else {
-                        id = nil
-                    }
-                    let performance = try performanceElement.html().nilIfEmpty()
-                    let attendee = Attendee(id: id, name: name, number: Int(number), yearOfBirth: yearOfBirth)
-                    let meldung = Meldung(performance: performance, rank: nil, region: region ?? Region(id: "UB", name: "Unbekannt"), clubName: clubName, attendees: [attendee])
                     meldungen.append(meldung)
 
                 }
@@ -86,35 +65,76 @@ struct MeldungParser {
                 age: age,
                 disciplins: disciplins
             ))
-            /*
-            let zipped = zip(document.xpath("[@id='\(id)']/following-sibling::div//a"), document.xpath("[@id='\(id)']/following-sibling::div//a/following-sibling::small"))
-
-            for (athlete, age) in zipped {
-                let ageAndNation = age.stringValue.split(separator: " ")
-                let yearOfBirth: Int = Int(ageAndNation[0])!
-                let clubName = "clubName"
-                let region = Region.all.first!
-                let name = athlete.stringValue
-                let id: String?
-                if let href = athlete.attributes["href"]?.replacingOccurrences(of: "/leistungsdatenbank/athletenprofil/", with: ""),
-                   let index = href.firstIndex(of: "/") {
-                    id = String(href.prefix(upTo: index))
-                } else {
-                    id = nil
-                }
-                let attendee = Attendee(id: id, name: name, number: nil, yearOfBirth: yearOfBirth)
-                let meldung = Meldung(performance: nil, rank: nil, region: region, clubName: clubName, attendees: [attendee])
-                meldungen.append(meldung)
-            }
-            result.append(MeldungPerAge(
-                age: age,
-                disciplins: [
-                    AttendingDisciplins(requiredPerformance: nil, disciplin: disciplin, attendees: meldungen)
-                ])
-            )
-                                                                                                             */
         }
         return result
+    }
+
+    private func parseEinzelMeldung(athleteRow: Element) throws -> Meldung? {
+        guard let athlete = try athleteRow.getElementsByTag("a").first(),
+              let age = try athleteRow.getElementsByTag("small").first(),
+              let verein = try athleteRow.getElementsByClass("col-12 overflow-hidden text-nowrap tnsmall").first(),
+              let performanceElement = try athleteRow.getElementsByClass("col-12 text-right").first(),
+              let number = try athleteRow.getElementsByClass("col-2 text-right").first()?.html()  else {
+            return nil
+        }
+        let ageAndNation = try age.html().split(separator: " ")
+        let yearOfBirth: Int = Int(ageAndNation[0])!
+        let regionText = try verein.html().suffix(5)
+        let regionId = regionText.replacingOccurrences(of: " (", with: "").replacingOccurrences(of: ")", with: "")
+        let clubName = try verein.html().replacingOccurrences(of: regionText, with: "")
+        let region = Region(id: regionId)
+        let name = try athlete.html()
+        let id: String?
+        if let href = try? athlete.attr("href").replacingOccurrences(of: "/leistungsdatenbank/athletenprofil/", with: ""),
+           let index = href.firstIndex(of: "/") {
+            id = String(href.prefix(upTo: index))
+        } else {
+            id = nil
+        }
+        let performance = try performanceElement.html().nilIfEmpty()
+        let attendee = Attendee(id: id, name: name, number: Int(number), yearOfBirth: yearOfBirth)
+        return Meldung(performance: performance, rank: nil, region: region ?? Region(id: "UB", name: "Unbekannt"), clubName: clubName, attendees: [attendee])
+    }
+
+    private func parseTeamMeldung(meldungRow: Element) throws -> Meldung? {
+        guard let numbers = try meldungRow.getElementsByClass("col-2 text-right").first?.getElementsByClass("tnsmall").map({ try $0.html() }) else {
+            return nil
+        }
+        let athletesElements = try meldungRow.getElementsByClass("row")[1].getElementsByClass("tnsmall")
+
+        var attendees = [Attendee]()
+        for (number, athleteRow) in zip(numbers, athletesElements) {
+            guard let athlete = try athleteRow.getElementsByTag("a").first(),
+                  let age = try athleteRow.getElementsByTag("small").first() else {
+                continue
+            }
+            let ageAndNation = try age.html().split(separator: " ")
+            let yearOfBirth: Int = Int(ageAndNation[0])!
+            let name = try athlete.html()
+            let id: String?
+            if let href = try? athlete.attr("href").replacingOccurrences(of: "/leistungsdatenbank/athletenprofil/", with: ""),
+               let index = href.firstIndex(of: "/") {
+                id = String(href.prefix(upTo: index))
+            } else {
+                id = nil
+            }
+            attendees.append(Attendee(id: id, name: name, number: Int(number), yearOfBirth: yearOfBirth))
+        }
+
+        let verein = try meldungRow.getElementsByClass("row")[1].getElementsByClass("col-12 overflow-hidden text-nowrap").first()!
+        let regionText = try verein.html().suffix(5)
+        let regionId = regionText.replacingOccurrences(of: " (", with: "").replacingOccurrences(of: ")", with: "")
+        let clubName = try verein.html().replacingOccurrences(of: regionText, with: "")
+        let region = Region(id: regionId)
+
+
+        return Meldung(
+            performance: nil,
+            rank: nil,
+            region: region ?? Region(id: "UB", name: "Unbekannt"),
+            clubName: clubName,
+            attendees: attendees
+        )
     }
     
 }
