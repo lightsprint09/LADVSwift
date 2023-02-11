@@ -29,7 +29,7 @@ let package = Package(
             dependencies: ["LADVSwift"],
             path: "LADVSwiftTests",
             resources: [
-                .process("LADVMEldeListe.html"),
+                .process("meldungStaffel.html"),
                 .process("meldung5.html")
             ]
         )
