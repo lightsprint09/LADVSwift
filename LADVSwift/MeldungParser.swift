@@ -77,7 +77,7 @@ struct MeldungParser {
               let verein = try athleteRow.getElementsByClass("col-12 overflow-hidden text-nowrap tnsmall").first(),
               let performanceElement = try athleteRow.getElementsByClass("col-12 text-right").first(),
               let number = try athleteRow.getElementsByClass("col-2 text-right").first()?.html()  else {
-            return nil
+            return try parseEinzelMeldungOneLADV(athleteRow: athleteRow)
         }
         let ageAndNation = try age.html().split(separator: " ")
         let yearOfBirth: Int = Int(ageAndNation[0])!
@@ -95,6 +95,27 @@ struct MeldungParser {
         }
         let performance = try performanceElement.html().nilIfEmpty()
         let attendee = Attendee(id: id, name: name, number: Int(number), yearOfBirth: yearOfBirth)
+        return Meldung(performance: performance, rank: nil, region: region ?? Region(id: "UB", name: "Unbekannt"), clubName: clubName, attendees: [attendee])
+    }
+
+    private func parseEinzelMeldungOneLADV(athleteRow: Element) throws -> Meldung? {
+        guard let athlete = try athleteRow.getElementsByClass("col-12 overflow-hidden text-nowrap").first(),
+              let age = try athleteRow.getElementsByTag("small").first(),
+              let verein = try athleteRow.getElementsByClass("col-12 overflow-hidden text-nowrap tnsmall").first(),
+              let performanceElement = try athleteRow.getElementsByClass("col-12 text-right").first(),
+              let number = try athleteRow.getElementsByClass("col-2 text-right").first()?.html()  else {
+            return nil
+        }
+        let ageAndNation = try age.html().split(separator: " ")
+        let yearOfBirth: Int = Int(ageAndNation[0])!
+        let regionText = try verein.html().suffix(5)
+        let regionId = regionText.replacingOccurrences(of: " (", with: "").replacingOccurrences(of: ")", with: "")
+        let clubName = try verein.html().replacingOccurrences(of: regionText, with: "")
+        let region = Region(id: regionId)
+        try athlete.getElementsByTag("small").first()?.remove()
+        let name = try athlete.html()
+        let performance = try performanceElement.html().nilIfEmpty()
+        let attendee = Attendee(id: nil, name: name, number: Int(number), yearOfBirth: yearOfBirth)
         return Meldung(performance: performance, rank: nil, region: region ?? Region(id: "UB", name: "Unbekannt"), clubName: clubName, attendees: [attendee])
     }
 
