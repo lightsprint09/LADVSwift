@@ -47,8 +47,8 @@ struct MeldungParser {
 
                 let index = ageHeadline.siblingElements().firstIndex(of: disciplinAnchor)
                 let rows = Array(disciplinAnchor.siblingElements().suffix(from: index!))
-                let row = rows[2]
-                guard try row.className() == "row" else {
+
+                guard let row = rows[safe: 2], try row.className() == "row" else {
                     disciplins.append(AttendingDisciplins(requiredPerformance: nil, disciplin: disciplin, attendees: []))
                     continue
                 }
@@ -178,4 +178,12 @@ extension SwiftSoup.Element {
         return Array(siblingElements().suffix(from: siblingIndex))
     }
 
+}
+
+extension Collection {
+
+    /// Returns the element at the specified index if it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
 }
