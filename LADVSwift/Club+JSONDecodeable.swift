@@ -14,6 +14,6 @@ extension Club: JSONDecodable {
         name = try decoder.decode("vereinname")
         number = try decoder.decode("vereinnumber")
         let regionId: String = try decoder.decode("lv")
-        region = Region(id: regionId)!
+        region = Region(id: regionId) ?? Region(id: regionId, name: "Unbekannte Region (\(regionId))")
     }
 }
