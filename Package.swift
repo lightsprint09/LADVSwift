@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "LADVSwift",
     platforms: [
-        .iOS(.v12),
+        .iOS(.v16),
         .macOS(.v13),
         .tvOS(.v12),
         .watchOS(.v4)
