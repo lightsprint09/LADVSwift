@@ -40,8 +40,8 @@ struct MeldungParser {
             })
 
             for disciplinAnchor in disciplinAnchors {
-                let dlvID = try disciplinAnchor.attr("id")
-                let disciplin = Disciplin(dlvID: dlvID.replacingOccurrences(of: age.ladvID, with: ""))
+                let dlvID = try String(disciplinAnchor.attr("id").trimmingPrefix(age.ladvID))
+                let disciplin = Disciplin(dlvID: dlvID)
                 var meldungen: [Meldung] = []
 
                 let index = ageHeadline.siblingElements().firstIndex(of: disciplinAnchor)

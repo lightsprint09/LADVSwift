@@ -94,5 +94,6 @@ class MeldeListenParserTest: XCTestCase {
 
         let disciplins = parser[6].disciplins
         XCTAssertEqual(disciplins.count, 4)
+        XCTAssertEqual(disciplins.last?.disciplin, Disciplin(dlvID: "M3K"))
     }
 }
