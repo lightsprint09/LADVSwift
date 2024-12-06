@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Age: Hashable {
+public struct Age: Hashable, Sendable {
     public let name: String
     public let shortName: String
     public let ladvID: String

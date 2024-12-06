@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct CompetitionCategory {
+public struct CompetitionCategory: Sendable {
     public let id: String
     public let name: String
     

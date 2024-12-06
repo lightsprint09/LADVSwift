@@ -6,9 +6,9 @@
 //  Copyright © 2017 freiraum. All rights reserved.
 //
 
-public struct Disciplin: Hashable {
+public struct Disciplin: Hashable, Sendable {
     
-    public enum Unit {
+    public enum Unit: Sendable {
         case punkte
         case zeit
         case metrisch

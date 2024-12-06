@@ -25,18 +25,17 @@ struct MeldungParser {
     func parse(document: Document) throws -> [MeldungPerAge] {
         var result = [MeldungPerAge]()
         let disciplinDlvIDs = Set(Disciplin.all.map { $0.code })
-
+        let anchors = try document.getElementsByClass("anchor")
         for age in Age.all {
             guard let ageHeadline = try document.getElementById(age.ladvID) else {
                 continue
             }
             var disciplins = [AttendingDisciplins]()
-
-            let disciplinAnchors = try document.getElementsByClass("anchor").filter({
+            let disciplinAnchors = anchors.filter({
                 guard let id = try? $0.attr("id"), id != age.dlvID, $0.hasClass("anchor"), id.contains(age.ladvID) else {
                     return false
                 }
-                let diciplin = id.replacingOccurrences(of: age.ladvID, with: "")
+                let diciplin = String(id.trimmingPrefix(age.ladvID))
                 return disciplinDlvIDs.contains(diciplin)
             })
 

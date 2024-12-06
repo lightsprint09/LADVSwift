@@ -1,14 +1,14 @@
-// swift-tools-version:5.3
+// swift-tools-version:6.0
 
 import PackageDescription
 
 let package = Package(
     name: "LADVSwift",
     platforms: [
-        .iOS(.v11),
-        .macOS(.v10_12),
-        .tvOS(.v11),
-        .watchOS(.v2)
+        .iOS(.v12),
+        .macOS(.v13),
+        .tvOS(.v12),
+        .watchOS(.v4)
     ],
     products: [
         .library(
@@ -31,7 +31,9 @@ let package = Package(
             resources: [
                 .process("meldungStaffel.html"),
                 .process("meldung5.html"),
-                .process("meldung6.html")
+                .process("meldung6.html"),
+                .process("meldung7.html"),
+                .process("meldung8.html")
             ]
         )
     ]
