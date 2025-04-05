@@ -21,8 +21,8 @@ public struct CompetitionDetails {
     public let tags: [String]
     
     //Meldung
-    public let meldeAdress: String
-    public let meldeEMailAdress: String
+    public let meldeAdress: String?
+    public let meldeEMailAdress: String?
     public let meldeSchlussDate: Date
     
     public let location: CompetitionLocation

@@ -38,8 +38,8 @@ public struct Ausschreibung: Hashable, Codable {
     public var description: String
 
     //Meldung
-    public var meldeAdress: String
-    public var meldeEMailAdress: String
+    public var meldeAdress: String?
+    public var meldeEMailAdress: String?
     public var meldeSchlussDate: Date
     
     public init(id: Int, name: String, date: Date, endDate: Date?, city: String?, locationName: String, description: String, meldeAdress: String, meldeEMailAdress: String, meldeSchlussDate: Date) {
