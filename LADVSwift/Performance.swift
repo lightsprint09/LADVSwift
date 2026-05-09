@@ -16,7 +16,7 @@ fileprivate let performanceDateFormatter: DateFormatter = {
 }()
 
 public struct Performance: Hashable {    
-    public let location: String
+    public let location: String?
     public let disciplin: Disciplin
     public let value: String
     public let dateText: String
