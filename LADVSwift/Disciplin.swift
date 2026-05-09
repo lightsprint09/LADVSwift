@@ -264,6 +264,7 @@ public struct Disciplin: Hashable, Sendable {
 
         Disciplin(name: "Schlagball", shortName: "SBall", code: "TSBAL", dlvID: "SCH", unit: .metrisch),
         Disciplin(name: "Schlagball", shortName: "SBall", code: "TSBAL_0080", dlvID: "SCH", unit: .metrisch),
+        Disciplin(name: "Ballwurf", shortName: "Ball", code: "TBAL", dlvID: "BAL", unit: .metrisch),
         Disciplin(name: "Ballwurf", shortName: "Ball", code: "TBAL_0200", dlvID: "BAL", unit: .metrisch),
         Disciplin(name: "Schleuderball", shortName: "Schleudrb.", code: "TSLBAL", dlvID: "SBA", unit: .metrisch),
         Disciplin(name: "Schleuderball 0,8 kg", shortName: "Shldb. 0,8", code: "TSLBAL_800", dlvID: "SBA", unit: .metrisch),
